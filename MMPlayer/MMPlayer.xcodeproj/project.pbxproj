@@ -8,11 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		B40480A2230303A70040B755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480A1230303A70040B755 /* AppDelegate.swift */; };
-		B40480A4230303A70040B755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480A3230303A70040B755 /* ViewController.swift */; };
 		B40480A6230303A90040B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40480A5230303A90040B755 /* Assets.xcassets */; };
 		B40480A9230303A90040B755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40480A7230303A90040B755 /* Main.storyboard */; };
 		B40480B5230303A90040B755 /* MMPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480B4230303A90040B755 /* MMPlayerTests.swift */; };
 		B40480C0230303A90040B755 /* MMPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480BF230303A90040B755 /* MMPlayerUITests.swift */; };
+		DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB72305082C00A6125A /* UIAlert+Extension.swift */; };
+		DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB82305082C00A6125A /* UIView+Extension.swift */; };
+		DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB92305082C00A6125A /* UIKit+Extension.swift */; };
+		DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BBA2305082C00A6125A /* UIViewController+Extension.swift */; };
+		DF1C8BCB2305082C00A6125A /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BBB2305082C00A6125A /* UIColor+MM_Extension.swift */; };
+		DF1C8BCC2305082C00A6125A /* NSDate+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BBC2305082C00A6125A /* NSDate+MM_Extension.swift */; };
+		DF1C8BCD2305082C00A6125A /* DispatchTime+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BBD2305082C00A6125A /* DispatchTime+MM_Extension.swift */; };
+		DF1C8BCE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BBE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift */; };
+		DF1C8BCF2305082C00A6125A /* MQConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC12305082C00A6125A /* MQConstant.swift */; };
+		DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC42305082C00A6125A /* MQTabbarController.swift */; };
+		DF1C8BD12305082C00A6125A /* MQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */; };
+		DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */; };
+		DF1C8BD523050E4200A6125A /* MPFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BD423050E4200A6125A /* MPFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +47,6 @@
 /* Begin PBXFileReference section */
 		B404809E230303A70040B755 /* MMPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480A1230303A70040B755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B40480A3230303A70040B755 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B40480A5230303A90040B755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B40480A8230303A90040B755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B40480AA230303A90040B755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +57,19 @@
 		B40480BB230303A90040B755 /* MMPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480BF230303A90040B755 /* MMPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerUITests.swift; sourceTree = "<group>"; };
 		B40480C1230303A90040B755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF1C8BB72305082C00A6125A /* UIAlert+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlert+Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BB82305082C00A6125A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BB92305082C00A6125A /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BBA2305082C00A6125A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BBB2305082C00A6125A /* UIColor+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MM_Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BBC2305082C00A6125A /* NSDate+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+MM_Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BBD2305082C00A6125A /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BBE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+MM_Extension.swift"; sourceTree = "<group>"; };
+		DF1C8BC12305082C00A6125A /* MQConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQConstant.swift; sourceTree = "<group>"; };
+		DF1C8BC42305082C00A6125A /* MQTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTabbarController.swift; sourceTree = "<group>"; };
+		DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQBaseViewController.swift; sourceTree = "<group>"; };
+		DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQBaseNavigationViewController.swift; sourceTree = "<group>"; };
+		DF1C8BD423050E4200A6125A /* MPFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +120,8 @@
 		B40480A0230303A70040B755 /* MMPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				DF1C8BB52305082C00A6125A /* Class */,
 				B40480A1230303A70040B755 /* AppDelegate.swift */,
-				B40480A3230303A70040B755 /* ViewController.swift */,
 				B40480A5230303A90040B755 /* Assets.xcassets */,
 				B40480A7230303A90040B755 /* Main.storyboard */,
 				B40480AA230303A90040B755 /* Info.plist */,
@@ -122,6 +146,74 @@
 				B40480C1230303A90040B755 /* Info.plist */,
 			);
 			path = MMPlayerUITests;
+			sourceTree = "<group>";
+		};
+		DF1C8BB52305082C00A6125A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BD323050E2600A6125A /* Component */,
+				DF1C8BB62305082C00A6125A /* Extension */,
+				DF1C8BBF2305082C00A6125A /* Common */,
+				DF1C8BC22305082C00A6125A /* Main */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		DF1C8BB62305082C00A6125A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BB72305082C00A6125A /* UIAlert+Extension.swift */,
+				DF1C8BB82305082C00A6125A /* UIView+Extension.swift */,
+				DF1C8BB92305082C00A6125A /* UIKit+Extension.swift */,
+				DF1C8BBA2305082C00A6125A /* UIViewController+Extension.swift */,
+				DF1C8BBB2305082C00A6125A /* UIColor+MM_Extension.swift */,
+				DF1C8BBC2305082C00A6125A /* NSDate+MM_Extension.swift */,
+				DF1C8BBD2305082C00A6125A /* DispatchTime+MM_Extension.swift */,
+				DF1C8BBE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DF1C8BBF2305082C00A6125A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BC02305082C00A6125A /* Constant */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		DF1C8BC02305082C00A6125A /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BC12305082C00A6125A /* MQConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		DF1C8BC22305082C00A6125A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BC32305082C00A6125A /* Base */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DF1C8BC32305082C00A6125A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BC42305082C00A6125A /* MQTabbarController.swift */,
+				DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */,
+				DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DF1C8BD323050E2600A6125A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C8BD423050E4200A6125A /* MPFileManager.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +346,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40480A4230303A70040B755 /* ViewController.swift in Sources */,
+				DF1C8BD523050E4200A6125A /* MPFileManager.swift in Sources */,
+				DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */,
+				DF1C8BD12305082C00A6125A /* MQBaseViewController.swift in Sources */,
+				DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */,
+				DF1C8BCF2305082C00A6125A /* MQConstant.swift in Sources */,
+				DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */,
+				DF1C8BCD2305082C00A6125A /* DispatchTime+MM_Extension.swift in Sources */,
+				DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */,
+				DF1C8BCC2305082C00A6125A /* NSDate+MM_Extension.swift in Sources */,
+				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
+				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,
 				B40480A2230303A70040B755 /* AppDelegate.swift in Sources */,
+				DF1C8BCB2305082C00A6125A /* UIColor+MM_Extension.swift in Sources */,
+				DF1C8BCE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,11 +456,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -406,10 +511,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};

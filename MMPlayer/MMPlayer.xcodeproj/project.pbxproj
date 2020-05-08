@@ -17,9 +17,12 @@
 		B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */; };
 		B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */; };
 		B41F933323E5360700BBA11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41F933223E5360700BBA11D /* Main.storyboard */; };
-		B41F933523E537BF00BBA11D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B41F933423E537BF00BBA11D /* Info.plist */; };
 		B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471A00F23234DF000E38679 /* MMPlayerModel.swift */; };
 		B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471A01223234EA700E38679 /* MMPlayerEnum.swift */; };
+		B4B9BE6F246575AF00AD0F9B /* MMSandboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */; };
+		B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */; };
+		B4B9BE742465765C00AD0F9B /* MMTopBottomTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */; };
+		B4B9BE782465780F00AD0F9B /* MMBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE762465780F00AD0F9B /* MMBaseTableViewCell.swift */; };
 		DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB72305082C00A6125A /* UIAlert+Extension.swift */; };
 		DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB82305082C00A6125A /* UIView+Extension.swift */; };
 		DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB92305082C00A6125A /* UIKit+Extension.swift */; };
@@ -73,6 +76,10 @@
 		B41F933423E537BF00BBA11D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B471A00F23234DF000E38679 /* MMPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerModel.swift; sourceTree = "<group>"; };
 		B471A01223234EA700E38679 /* MMPlayerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerEnum.swift; sourceTree = "<group>"; };
+		B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSandboxVC.swift; sourceTree = "<group>"; };
+		B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTopBottomTVCell.swift; sourceTree = "<group>"; };
+		B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTopBottomTVCell.xib; sourceTree = "<group>"; };
+		B4B9BE762465780F00AD0F9B /* MMBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseTableViewCell.swift; sourceTree = "<group>"; };
 		B4EC6B77C07E6B7A84491FBE /* Pods_MMPlayerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMPlayerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B731031DBA95A3E9F34F0C5E /* Pods_MMPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4636E9DEE43B66BFA161CA /* Pods-MMPlayerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayerUITests/Pods-MMPlayerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +217,32 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		B4B9BE6D2465754C00AD0F9B /* SandboxVC */ = {
+			isa = PBXGroup;
+			children = (
+				B4B9BE70246575E500AD0F9B /* View */,
+				B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */,
+			);
+			path = SandboxVC;
+			sourceTree = "<group>";
+		};
+		B4B9BE70246575E500AD0F9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */,
+				B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4B9BE75246577FD00AD0F9B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B4B9BE762465780F00AD0F9B /* MMBaseTableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		B7536766FBF228B5697004C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +256,7 @@
 		DF1C8BB52305082C00A6125A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B4B9BE6D2465754C00AD0F9B /* SandboxVC */,
 				B41F932D23E523F200BBA11D /* Home */,
 				DF1C8BD323050E2600A6125A /* Component */,
 				DF1C8BB62305082C00A6125A /* Extension */,
@@ -277,6 +311,7 @@
 		DF1C8BC32305082C00A6125A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B4B9BE75246577FD00AD0F9B /* view */,
 				DF1C8BC42305082C00A6125A /* MQTabbarController.swift */,
 				DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */,
 				DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */,
@@ -304,6 +339,7 @@
 				B404809A230303A70040B755 /* Sources */,
 				B404809B230303A70040B755 /* Frameworks */,
 				B404809C230303A70040B755 /* Resources */,
+				240065A63516A2E9D489F7E4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -400,9 +436,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B9BE742465765C00AD0F9B /* MMTopBottomTVCell.xib in Resources */,
 				B40480A6230303A90040B755 /* Assets.xcassets in Resources */,
 				B41F933323E5360700BBA11D /* Main.storyboard in Resources */,
-				B41F933523E537BF00BBA11D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +475,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		240065A63516A2E9D489F7E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MMPlayer/Pods-MMPlayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MMPlayer/Pods-MMPlayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MMPlayer/Pods-MMPlayer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7EA850E868BA76ACF89980B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -486,6 +539,7 @@
 			files = (
 				DF1C8BD523050E4200A6125A /* MPFileManager.swift in Sources */,
 				DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */,
+				B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */,
 				DF1C8BD12305082C00A6125A /* MQBaseViewController.swift in Sources */,
 				DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */,
 				DF1C8BCF2305082C00A6125A /* MQConstant.swift in Sources */,
@@ -497,9 +551,11 @@
 				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
 				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,
 				B40480A2230303A70040B755 /* AppDelegate.swift in Sources */,
+				B4B9BE782465780F00AD0F9B /* MMBaseTableViewCell.swift in Sources */,
 				B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */,
 				B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */,
 				DF1C8BCB2305082C00A6125A /* UIColor+MM_Extension.swift in Sources */,
+				B4B9BE6F246575AF00AD0F9B /* MMSandboxVC.swift in Sources */,
 				DF1C8BCE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift in Sources */,
 				B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */,
 			);
@@ -660,12 +716,13 @@
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T6H68KJ4WD;
 				INFOPLIST_FILE = MMPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.CoreTextDemo.MMPlayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mumu.mmplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -679,12 +736,13 @@
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T6H68KJ4WD;
 				INFOPLIST_FILE = MMPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.CoreTextDemo.MMPlayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mumu.mmplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

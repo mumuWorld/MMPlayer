@@ -16,9 +16,10 @@ class MQTabbarController: UITabBarController {
 //        guard let home = homeVC else {
 //            return;
 //        }
-//        let homeNavi = MQBaseNavigationViewController(rootViewController: home)
-//        homeNavi.title = "主页"
-//        addChild(homeNavi)
+        let home = MMHomeViewController()
+        let homeNavi = MQBaseNavigationViewController(rootViewController: home)
+        home.title = "MMPlayer"
+        addChild(homeNavi)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

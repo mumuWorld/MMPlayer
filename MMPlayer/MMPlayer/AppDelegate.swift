@@ -15,7 +15,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        let rootVC = MQTabbarController()
+        let navi = MQBaseNavigationViewController(rootViewController: rootVC)
+        window?.rootViewController = navi
+        window?.makeKeyAndVisible()
         return true
     }
     

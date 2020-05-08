@@ -12,9 +12,12 @@
 		AA293BFAA0FF9BAD7D86EAF2 /* Pods_MMPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B731031DBA95A3E9F34F0C5E /* Pods_MMPlayer.framework */; };
 		B40480A2230303A70040B755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480A1230303A70040B755 /* AppDelegate.swift */; };
 		B40480A6230303A90040B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40480A5230303A90040B755 /* Assets.xcassets */; };
-		B40480A9230303A90040B755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40480A7230303A90040B755 /* Main.storyboard */; };
 		B40480B5230303A90040B755 /* MMPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480B4230303A90040B755 /* MMPlayerTests.swift */; };
 		B40480C0230303A90040B755 /* MMPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480BF230303A90040B755 /* MMPlayerUITests.swift */; };
+		B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */; };
+		B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */; };
+		B41F933323E5360700BBA11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41F933223E5360700BBA11D /* Main.storyboard */; };
+		B41F933523E537BF00BBA11D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B41F933423E537BF00BBA11D /* Info.plist */; };
 		B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471A00F23234DF000E38679 /* MMPlayerModel.swift */; };
 		B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471A01223234EA700E38679 /* MMPlayerEnum.swift */; };
 		DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB72305082C00A6125A /* UIAlert+Extension.swift */; };
@@ -57,8 +60,6 @@
 		B404809E230303A70040B755 /* MMPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480A1230303A70040B755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B40480A5230303A90040B755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B40480A8230303A90040B755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B40480AA230303A90040B755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B40480AB230303A90040B755 /* MMPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMPlayer.entitlements; sourceTree = "<group>"; };
 		B40480B0230303A90040B755 /* MMPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480B4230303A90040B755 /* MMPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerTests.swift; sourceTree = "<group>"; };
@@ -66,6 +67,10 @@
 		B40480BB230303A90040B755 /* MMPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480BF230303A90040B755 /* MMPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerUITests.swift; sourceTree = "<group>"; };
 		B40480C1230303A90040B755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseTableViewController.swift; sourceTree = "<group>"; };
+		B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeViewController.swift; sourceTree = "<group>"; };
+		B41F933223E5360700BBA11D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B41F933423E537BF00BBA11D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B471A00F23234DF000E38679 /* MMPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerModel.swift; sourceTree = "<group>"; };
 		B471A01223234EA700E38679 /* MMPlayerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerEnum.swift; sourceTree = "<group>"; };
 		B4EC6B77C07E6B7A84491FBE /* Pods_MMPlayerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMPlayerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,9 +161,8 @@
 			children = (
 				DF1C8BB52305082C00A6125A /* Class */,
 				B40480A1230303A70040B755 /* AppDelegate.swift */,
+				B41F933423E537BF00BBA11D /* Info.plist */,
 				B40480A5230303A90040B755 /* Assets.xcassets */,
-				B40480A7230303A90040B755 /* Main.storyboard */,
-				B40480AA230303A90040B755 /* Info.plist */,
 				B40480AB230303A90040B755 /* MMPlayer.entitlements */,
 			);
 			path = MMPlayer;
@@ -180,6 +184,14 @@
 				B40480C1230303A90040B755 /* Info.plist */,
 			);
 			path = MMPlayerUITests;
+			sourceTree = "<group>";
+		};
+		B41F932D23E523F200BBA11D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B471A00E23234DD600E38679 /* Model */ = {
@@ -211,10 +223,12 @@
 		DF1C8BB52305082C00A6125A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B41F932D23E523F200BBA11D /* Home */,
 				DF1C8BD323050E2600A6125A /* Component */,
 				DF1C8BB62305082C00A6125A /* Extension */,
 				DF1C8BBF2305082C00A6125A /* Common */,
 				DF1C8BC22305082C00A6125A /* Main */,
+				B41F933223E5360700BBA11D /* Main.storyboard */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -266,6 +280,7 @@
 				DF1C8BC42305082C00A6125A /* MQTabbarController.swift */,
 				DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */,
 				DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */,
+				B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -386,7 +401,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B40480A6230303A90040B755 /* Assets.xcassets in Resources */,
-				B40480A9230303A90040B755 /* Main.storyboard in Resources */,
+				B41F933323E5360700BBA11D /* Main.storyboard in Resources */,
+				B41F933523E537BF00BBA11D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,9 +497,11 @@
 				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
 				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,
 				B40480A2230303A70040B755 /* AppDelegate.swift in Sources */,
+				B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */,
 				B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */,
 				DF1C8BCB2305082C00A6125A /* UIColor+MM_Extension.swift in Sources */,
 				DF1C8BCE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift in Sources */,
+				B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,17 +535,6 @@
 			targetProxy = B40480BC230303A90040B755 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B40480A7230303A90040B755 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B40480A8230303A90040B755 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B40480C2230303A90040B755 /* Debug */ = {

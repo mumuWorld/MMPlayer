@@ -11,24 +11,36 @@ import SnapKit
 
 class MMBaseTableViewCell: UITableViewCell {
     
-    lazy var botLineLayer: CALayer = {
-        let layer = CALayer()
-        layer.backgroundColor = UIColor.lightGray.cgColor
+    lazy var botLineView: UIView = {
+        let layer = UIView()
+        layer.backgroundColor = UIColor.lightGray
         return layer
     }()
     
+    var botLineEdgeinsets: UIEdgeInsets = UIEdgeInsets.zero {
+        willSet {
+            botLineView.snp.remakeConstraints { (make) in
+                make.left.equalToSuperview().offset(newValue.left)
+                make.right.equalToSuperview().offset(-newValue.right)
+                make.bottom.equalToSuperview().offset(newValue.bottom)
+            }
+        }
+    }
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        initSubviews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        initSubviews()
     }
     
     func initSubviews() -> Void {
-        self.contentView.layer.addSublayer(self.botLineLayer)
-//        self.contentView.sn
+        contentView.addSubview(self.botLineView)
+        botLineEdgeinsets = UIEdgeInsets.zero
     }
     
     override func awakeFromNib() {

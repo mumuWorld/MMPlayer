@@ -46,7 +46,7 @@ func MPPrintLog<T>(message : T, file : String = #file, funcName : String = #func
     // 1.2 获取文件名
     let fileName = fileArray[0]
     // 2.打印内容
-    print("⭕️ [\(fileName) \(funcName)](\(lineNum)): \(message)")
+    print("🗒 [\(fileName) \(funcName)](\(lineNum)): \(message)")
     #endif
 }
 

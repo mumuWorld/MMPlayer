@@ -36,4 +36,13 @@ extension Date {
         let result = shareFormatter.string(from: date)
         return result
     }
+    
+    func dataStr(formatter: kDateFormatterKey = kDateFormatterKey.Default) -> String {
+        let shareFormatter = Date.shareFormatter
+        shareFormatter.locale = Locale.current
+        shareFormatter.timeZone = TimeZone.current
+        shareFormatter.dateFormat = formatter.rawValue
+        let result = shareFormatter.string(from: self)
+        return result
+    }
 }

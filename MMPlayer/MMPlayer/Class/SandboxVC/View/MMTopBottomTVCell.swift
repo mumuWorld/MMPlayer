@@ -8,7 +8,26 @@
 
 import UIKit
 
-class MMTopBottomTVCell: UITableViewCell {
+class MMTopBottomTVCell: MMBaseTableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var detailLabel: UILabel!
+    
+    @IBOutlet weak var arrowImg: UIImageView!
+    
+    var itemModel: MMFileItem? {
+        willSet {
+            guard let item = newValue else {
+                return
+            }
+            nameLabel.text = item.name
+            let size = item.size / 1024
+            detailLabel.text = item.modificationDateStr + "  \(size)kb"
+            arrowImg.isHidden = item.type != .directory
+        }
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +39,21 @@ class MMTopBottomTVCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+}
+
+extension MMTopBottomTVCell: CellProtocol {
+    static var reuseID: String {
+        return NSStringFromClass(MMTopBottomTVCell.self)
+    }
+    
+    static var nib: UINib {
+        return UINib.init(nibName: reuseID, bundle: nil)
+    }
+    
+    static var className: String {
+        return NSStringFromClass(MMTopBottomTVCell.self)
+    }
+    
     
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		B40480A6230303A90040B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40480A5230303A90040B755 /* Assets.xcassets */; };
 		B40480B5230303A90040B755 /* MMPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480B4230303A90040B755 /* MMPlayerTests.swift */; };
 		B40480C0230303A90040B755 /* MMPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480BF230303A90040B755 /* MMPlayerUITests.swift */; };
+		B413AEBC246684AA009B385F /* CellProtorol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B413AEBB246684AA009B385F /* CellProtorol.swift */; };
+		B413AEBE24668739009B385F /* MMFileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B413AEBD24668739009B385F /* MMFileItem.swift */; };
+		B413AEC02466924B009B385F /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B413AEBF2466924B009B385F /* UITableView+Extension.swift */; };
 		B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */; };
 		B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */; };
 		B41F933323E5360700BBA11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41F933223E5360700BBA11D /* Main.storyboard */; };
@@ -35,7 +38,7 @@
 		DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC42305082C00A6125A /* MQTabbarController.swift */; };
 		DF1C8BD12305082C00A6125A /* MQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */; };
 		DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */; };
-		DF1C8BD523050E4200A6125A /* MPFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BD423050E4200A6125A /* MPFileManager.swift */; };
+		DF1C8BD523050E4200A6125A /* MMFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BD423050E4200A6125A /* MMFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		B40480BB230303A90040B755 /* MMPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480BF230303A90040B755 /* MMPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerUITests.swift; sourceTree = "<group>"; };
 		B40480C1230303A90040B755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B413AEBB246684AA009B385F /* CellProtorol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtorol.swift; sourceTree = "<group>"; };
+		B413AEBD24668739009B385F /* MMFileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFileItem.swift; sourceTree = "<group>"; };
+		B413AEBF2466924B009B385F /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseTableViewController.swift; sourceTree = "<group>"; };
 		B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeViewController.swift; sourceTree = "<group>"; };
 		B41F933223E5360700BBA11D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +103,7 @@
 		DF1C8BC42305082C00A6125A /* MQTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTabbarController.swift; sourceTree = "<group>"; };
 		DF1C8BC52305082C00A6125A /* MQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQBaseViewController.swift; sourceTree = "<group>"; };
 		DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQBaseNavigationViewController.swift; sourceTree = "<group>"; };
-		DF1C8BD423050E4200A6125A /* MPFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFileManager.swift; sourceTree = "<group>"; };
+		DF1C8BD423050E4200A6125A /* MMFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 			children = (
 				B4B9BE70246575E500AD0F9B /* View */,
 				B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */,
+				B413AEBD24668739009B385F /* MMFileItem.swift */,
 			);
 			path = SandboxVC;
 			sourceTree = "<group>";
@@ -278,6 +285,7 @@
 				DF1C8BBC2305082C00A6125A /* NSDate+MM_Extension.swift */,
 				DF1C8BBD2305082C00A6125A /* DispatchTime+MM_Extension.swift */,
 				DF1C8BBE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift */,
+				B413AEBF2466924B009B385F /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,6 +295,7 @@
 			children = (
 				B471A01123234E9800E38679 /* Enum */,
 				DF1C8BC02305082C00A6125A /* Constant */,
+				B413AEBB246684AA009B385F /* CellProtorol.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -323,7 +332,7 @@
 		DF1C8BD323050E2600A6125A /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				DF1C8BD423050E4200A6125A /* MPFileManager.swift */,
+				DF1C8BD423050E4200A6125A /* MMFileManager.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -537,7 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF1C8BD523050E4200A6125A /* MPFileManager.swift in Sources */,
+				DF1C8BD523050E4200A6125A /* MMFileManager.swift in Sources */,
 				DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */,
 				B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */,
 				DF1C8BD12305082C00A6125A /* MQBaseViewController.swift in Sources */,
@@ -547,10 +556,12 @@
 				DF1C8BCD2305082C00A6125A /* DispatchTime+MM_Extension.swift in Sources */,
 				DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */,
 				DF1C8BCC2305082C00A6125A /* NSDate+MM_Extension.swift in Sources */,
+				B413AEBE24668739009B385F /* MMFileItem.swift in Sources */,
 				B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */,
 				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
 				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,
 				B40480A2230303A70040B755 /* AppDelegate.swift in Sources */,
+				B413AEBC246684AA009B385F /* CellProtorol.swift in Sources */,
 				B4B9BE782465780F00AD0F9B /* MMBaseTableViewCell.swift in Sources */,
 				B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */,
 				B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */,
@@ -558,6 +569,7 @@
 				B4B9BE6F246575AF00AD0F9B /* MMSandboxVC.swift in Sources */,
 				DF1C8BCE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift in Sources */,
 				B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */,
+				B413AEC02466924B009B385F /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +730,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T6H68KJ4WD;
 				INFOPLIST_FILE = MMPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -738,6 +751,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T6H68KJ4WD;
 				INFOPLIST_FILE = MMPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

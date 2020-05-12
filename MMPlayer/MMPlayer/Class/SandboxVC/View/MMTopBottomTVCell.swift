@@ -31,7 +31,7 @@ class MMTopBottomTVCell: MMBaseTableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        botLineEdgeinsets = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

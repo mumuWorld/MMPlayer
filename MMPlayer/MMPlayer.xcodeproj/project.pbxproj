@@ -26,6 +26,10 @@
 		B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */; };
 		B4B9BE742465765C00AD0F9B /* MMTopBottomTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */; };
 		B4B9BE782465780F00AD0F9B /* MMBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE762465780F00AD0F9B /* MMBaseTableViewCell.swift */; };
+		B4CB4ABB246ABA4900E25C74 /* String+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB4ABA246ABA4900E25C74 /* String+MM_Extension.swift */; };
+		B4CB4ABF246AC71D00E25C74 /* MMAudioPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB4ABD246AC71D00E25C74 /* MMAudioPlayerVC.swift */; };
+		B4CB4AC0246AC71D00E25C74 /* MMAudioPlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CB4ABE246AC71D00E25C74 /* MMAudioPlayerVC.xib */; };
+		B4CB4AC3246ACD0700E25C74 /* MMAudioItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB4AC2246ACD0700E25C74 /* MMAudioItem.swift */; };
 		DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB72305082C00A6125A /* UIAlert+Extension.swift */; };
 		DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB82305082C00A6125A /* UIView+Extension.swift */; };
 		DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BB92305082C00A6125A /* UIKit+Extension.swift */; };
@@ -86,6 +90,10 @@
 		B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTopBottomTVCell.swift; sourceTree = "<group>"; };
 		B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTopBottomTVCell.xib; sourceTree = "<group>"; };
 		B4B9BE762465780F00AD0F9B /* MMBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseTableViewCell.swift; sourceTree = "<group>"; };
+		B4CB4ABA246ABA4900E25C74 /* String+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MM_Extension.swift"; sourceTree = "<group>"; };
+		B4CB4ABD246AC71D00E25C74 /* MMAudioPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAudioPlayerVC.swift; sourceTree = "<group>"; };
+		B4CB4ABE246AC71D00E25C74 /* MMAudioPlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMAudioPlayerVC.xib; sourceTree = "<group>"; };
+		B4CB4AC2246ACD0700E25C74 /* MMAudioItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAudioItem.swift; sourceTree = "<group>"; };
 		B4EC6B77C07E6B7A84491FBE /* Pods_MMPlayerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMPlayerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B731031DBA95A3E9F34F0C5E /* Pods_MMPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4636E9DEE43B66BFA161CA /* Pods-MMPlayerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayerUITests/Pods-MMPlayerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +258,24 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		B4CB4ABC246AC6D400E25C74 /* ToolVC */ = {
+			isa = PBXGroup;
+			children = (
+				B4CB4AC1246ACCEC00E25C74 /* model */,
+				B4CB4ABD246AC71D00E25C74 /* MMAudioPlayerVC.swift */,
+				B4CB4ABE246AC71D00E25C74 /* MMAudioPlayerVC.xib */,
+			);
+			path = ToolVC;
+			sourceTree = "<group>";
+		};
+		B4CB4AC1246ACCEC00E25C74 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B4CB4AC2246ACD0700E25C74 /* MMAudioItem.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		B7536766FBF228B5697004C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +289,7 @@
 		DF1C8BB52305082C00A6125A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B4CB4ABC246AC6D400E25C74 /* ToolVC */,
 				B4B9BE6D2465754C00AD0F9B /* SandboxVC */,
 				B41F932D23E523F200BBA11D /* Home */,
 				DF1C8BD323050E2600A6125A /* Component */,
@@ -286,6 +313,7 @@
 				DF1C8BBD2305082C00A6125A /* DispatchTime+MM_Extension.swift */,
 				DF1C8BBE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift */,
 				B413AEBF2466924B009B385F /* UITableView+Extension.swift */,
+				B4CB4ABA246ABA4900E25C74 /* String+MM_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -447,6 +475,7 @@
 			files = (
 				B4B9BE742465765C00AD0F9B /* MMTopBottomTVCell.xib in Resources */,
 				B40480A6230303A90040B755 /* Assets.xcassets in Resources */,
+				B4CB4AC0246AC71D00E25C74 /* MMAudioPlayerVC.xib in Resources */,
 				B41F933323E5360700BBA11D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,13 +579,16 @@
 				DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */,
 				B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */,
 				DF1C8BD12305082C00A6125A /* MQBaseViewController.swift in Sources */,
+				B4CB4ABF246AC71D00E25C74 /* MMAudioPlayerVC.swift in Sources */,
 				DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */,
 				DF1C8BCF2305082C00A6125A /* MQConstant.swift in Sources */,
+				B4CB4AC3246ACD0700E25C74 /* MMAudioItem.swift in Sources */,
 				DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */,
 				DF1C8BCD2305082C00A6125A /* DispatchTime+MM_Extension.swift in Sources */,
 				DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */,
 				DF1C8BCC2305082C00A6125A /* NSDate+MM_Extension.swift in Sources */,
 				B413AEBE24668739009B385F /* MMFileItem.swift in Sources */,
+				B4CB4ABB246ABA4900E25C74 /* String+MM_Extension.swift in Sources */,
 				B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */,
 				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
 				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,

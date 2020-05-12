@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MMAudioPlayerVC" customModule="MMPlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="playBtn" destination="trf-3R-Kiv" id="MA7-xa-iLU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trf-3R-Kiv">
+                    <rect key="frame" x="195" y="738" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="RXJ-yp-JAQ"/>
+                        <constraint firstAttribute="height" constant="24" id="etR-wX-Qkp"/>
+                    </constraints>
+                    <state key="normal" image="play_btn"/>
+                    <state key="selected" image="pause_btn"/>
+                    <connections>
+                        <action selector="handleBtnClick:" destination="-1" eventType="touchUpInside" id="TsP-vZ-eVG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="trf-3R-Kiv" secondAttribute="bottom" constant="100" id="6m1-or-rug"/>
+                <constraint firstItem="trf-3R-Kiv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yu5-me-1hv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="91.741071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pause_btn" width="24" height="24"/>
+        <image name="play_btn" width="24" height="24"/>
+    </resources>
+</document>

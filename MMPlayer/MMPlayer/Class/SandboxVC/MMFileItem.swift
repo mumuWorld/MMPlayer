@@ -9,10 +9,15 @@
 import UIKit
 
 class MMFileItem: NSObject {
-    var name = ""
+    var name = "" {
+        willSet {
+//            let path: URL = URL(fileURLWithPath: path)
+//            path.pathExtension
+        }
+    }
     var path = ""
     var size: Int = 0
-    
+    var extensionHidden: Bool = true
     /// 修改时间戳
     var modificationDate: Date?
     var modificationDateStr: String {
@@ -36,7 +41,7 @@ class MMFileItem: NSObject {
     init(param:[FileAttributeKey : Any]?) {
         super.init()
         if let dict = param {
-            MPPrintLog(message: dict)
+//            MPPrintLog(message: dict)
             if let fileSize = dict[.size] as? Int {
                 size = fileSize
             }
@@ -45,6 +50,9 @@ class MMFileItem: NSObject {
             }
             if let modifyDate = dict[.modificationDate] as? Date {
                 modificationDate = modifyDate
+            }
+            if let extensionHid = dict[.extensionHidden] as? Bool {
+                extensionHidden = extensionHid
             }
         } else {
             return
@@ -61,6 +69,5 @@ class MMFileItem: NSObject {
         } else {
             type = .regular
         }
-        
     }
 }

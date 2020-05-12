@@ -14,7 +14,7 @@ let MQScreenHeight = UIScreen.main.bounds.size.height;
 
 let MQAdaptScale = MQScreenWidth / 375.0
 
-let MQMainColor = UIColor.mm_colorFromHex(color_vaule: 0x2882fc)
+let MQMainColor = UIColor.mm_colorFromHex(color_vaule: 0x0ba0e9)
 
 let MQMainTitleColor = UIColor.mm_colorFromHex(color_vaule: 0x444444)
 

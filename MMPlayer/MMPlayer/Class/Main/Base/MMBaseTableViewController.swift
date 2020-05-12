@@ -25,6 +25,7 @@ class MMBaseTableViewController: MQBaseViewController {
         super.viewDidLoad()
         tableview.frame = view.bounds
         self.view.addSubview(tableview)
+        tableview.tableFooterView = UIView()
     }
     
 

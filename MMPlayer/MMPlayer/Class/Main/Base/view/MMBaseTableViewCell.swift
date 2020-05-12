@@ -17,12 +17,15 @@ class MMBaseTableViewCell: UITableViewCell {
         return layer
     }()
     
+    
+    /// 🐷: top是高度
     var botLineEdgeinsets: UIEdgeInsets = UIEdgeInsets.zero {
         willSet {
             botLineView.snp.remakeConstraints { (make) in
                 make.left.equalToSuperview().offset(newValue.left)
                 make.right.equalToSuperview().offset(-newValue.right)
                 make.bottom.equalToSuperview().offset(newValue.bottom)
+                make.height.equalTo(newValue.top)
             }
         }
     }

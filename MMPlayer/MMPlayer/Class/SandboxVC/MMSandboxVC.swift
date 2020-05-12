@@ -10,34 +10,54 @@ import UIKit
 import SnapKit
 
 class MMSandboxVC: MMBaseTableViewController {
+    public var _currentPath: String = ""
+    public var currentPath: String {
+        get {
+            if _currentPath.count < 1 {
+                _currentPath = rootPath
+            }
+            return _currentPath;
+        }
+        set {
+            _currentPath = newValue
+        }
+    }
     lazy var rootPath = MMFileManager.getSandboxPath()
-  
-    lazy var dataArray: [MMFileItem] = {
-        let array = MMFileManager.getDirectorAllItems(path: rootPath)
+    
+    lazy var dataArray: [MMFileItem] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupData ()
+        initSubViews()
+    }
+    
+    func setupData () {
+        let array = MMFileManager.getDirectorAllItems(path: currentPath)
         var newItems: [MMFileItem] = Array()
         if let items = array {
             for name in items {
-                let path = rootPath.appendingFormat("/%@", name)
+                let path = currentPath.appendPathComponent(string: name)
                 if let item = MMFileManager.getPathProperty(path: path) {
                     item.name = name
                     newItems.append(item)
                 }
             }
         }
-        return newItems
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initSubViews()
+        dataArray = newItems
     }
     
     func initSubViews() -> Void {
-        
+        tableview.separatorStyle = .none
         tableview.mm_registerNibCell(classType: MMTopBottomTVCell.self)
-//        tableview.register(MMTopBottomTVCell.nib, forCellReuseIdentifier: MMTopBottomTVCell.reuseID)
         tableview.reloadData();
+    }
+    
+    func pushToVC(path: String) -> Void {
+        let vc = MMSandboxVC()
+//        vc.dataArray = dataArr;
+        vc.currentPath = path
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -58,5 +78,15 @@ extension MMSandboxVC {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         MPPrintLog(message: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let item = self.dataArray[indexPath.row]
+        if item.type == .directory {
+            let path = currentPath.appendPathComponent(string: item.name)
+            pushToVC(path: path)
+        } else if item.type == .audio {
+            let vc = MMAudioPlayerVC()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

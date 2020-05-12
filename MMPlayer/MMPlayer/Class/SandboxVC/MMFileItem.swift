@@ -9,13 +9,23 @@
 import UIKit
 
 class MMFileItem: NSObject {
-    var name = "" {
+    var name = ""
+    var path = ""{
         willSet {
-//            let path: URL = URL(fileURLWithPath: path)
-//            path.pathExtension
+            if type == .directory {
+                return
+            }
+            let path: URL = URL(fileURLWithPath: newValue)
+            let extenStr = path.pathExtension
+            switch extenStr {
+            case "MP3": break
+            case "mp3":
+                type = .audio
+            default:
+                break
+            }
         }
     }
-    var path = ""
     var size: Int = 0
     var extensionHidden: Bool = true
     /// 修改时间戳

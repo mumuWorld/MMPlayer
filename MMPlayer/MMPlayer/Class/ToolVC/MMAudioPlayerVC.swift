@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import AVFoundation
 
-class MMAudioPlayerVC: MQBaseViewController {
+class MMAudioPlayerVC: MMBaseViewController {
     
-    lazy var player = AVAudioPlayer()
+     var audioItem: MMAudioItem?
     
-    var audioItem: MMAudioItem?
+    lazy var player: MMAudioPlayerTool = MMAudioPlayerTool.shared
     
     @IBOutlet weak var playBtn: UIButton!
     
@@ -22,13 +21,18 @@ class MMAudioPlayerVC: MQBaseViewController {
         guard let item = audioItem else {
             return
         }
-        let url = URL(fileURLWithPath: item.path)
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
+        if player.audioItem?.name == item.name { //证明当前播放实例已经存在
+            return
+        }
+        playBtn.isSelected = true
+        player.audioItem = item
+        navigationItem.title = audioItem?.name
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if playBtn.isSelected && !player.isPlaying {
             player.play()
-            playBtn.isSelected = false
-        } catch {
-            MPErrorLog(message: error)
         }
     }
 
@@ -47,14 +51,8 @@ class MMAudioPlayerVC: MQBaseViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    deinit {
+//        player.stop()
     }
-    */
 
 }

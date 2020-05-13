@@ -13,6 +13,11 @@ enum DirectorType {
 }
 
 class MMFileManager {
+    
+    static var cachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first
+    
+    static var receivedPath = MMFileManager.cachePath?.appendPathComponent(string: "Received")
+    
     class func getSandboxPath(fileType: DirectorType = .root) -> String {
         var type:FileManager.SearchPathDirectory = .applicationDirectory
         if fileType == .root {
@@ -37,6 +42,9 @@ class MMFileManager {
     }
     
     class func getPathProperty(path: String) -> MMFileItem? {
+        if !judgePathIsRight(path: path) {
+            return nil
+        }
         let manager = FileManager.default
         MPPrintLog(message: "path->" + path)
         do {
@@ -48,5 +56,49 @@ class MMFileManager {
             MPErrorLog(message: error)
         }
         return nil
+    }
+    
+    
+    /// 创建文件夹
+    /// - Parameter path: 路径
+    class func createDirectory(path: String) {
+        if !judgePathIsRight(path: path) {
+            return
+        }
+        let manager = FileManager.default
+        MPPrintLog(message: "path->" + path)
+        var pointer = ObjCBool(false)
+        let exist = manager.fileExists(atPath: path, isDirectory: &pointer)
+        if exist && pointer.boolValue == true {
+            MPPrintLog(message: "文件已经存在")
+            return
+        }
+        do {
+            try manager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            MPErrorLog(message: error)
+        }
+    }
+    
+    
+    /// 拷贝文件到路径
+    class func copyFileFrom(path: String, toPath: String) {
+        if !judgePathIsRight(path: path) || !judgePathIsRight(path: toPath) {
+            return
+        }
+        let manager = FileManager.default
+        do {
+            try manager.copyItem(atPath: path, toPath: toPath)
+        } catch {
+            MPErrorLog(message: error)
+        }
+    }
+    
+    class func judgePathIsRight(path: String) -> Bool {
+        if path.count < 1 {
+            MPPrintLog(message: "路径不合法")
+            return false
+        }
+        return true
     }
 }

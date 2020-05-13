@@ -10,7 +10,7 @@ import UIKit
 
 let MMEmptyCellIdentify = "MMEmptyCellIdentify"
 
-class MMBaseTableViewController: MQBaseViewController {
+class MMBaseTableViewController: MMBaseViewController {
     
     lazy var tableview: UITableView = {
         let table = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)

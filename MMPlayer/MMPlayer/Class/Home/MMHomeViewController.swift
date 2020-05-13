@@ -18,10 +18,8 @@ class MMHomeViewController: MMBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = leftBarItem
-//        UIBarButtonItem *item =
-        
-
-        // Do any additional setup after loading the view.
+        //初始化一个copy文件的文件夹
+        MMFileManager.createDirectory(path: MMFileManager.receivedPath ?? "")
     }
     
     @objc func handleBtnClick(sender: UIButton) {

@@ -1,5 +1,5 @@
 //
-//  MQBaseViewController.swift
+//  MMBaseViewController.swift
 //  MMQRCode
 //
 //  Created by yangjie on 2019/7/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MQBaseViewController: UIViewController {
+class MMBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

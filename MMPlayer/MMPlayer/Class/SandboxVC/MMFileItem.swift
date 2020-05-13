@@ -17,10 +17,13 @@ class MMFileItem: NSObject {
             }
             let path: URL = URL(fileURLWithPath: newValue)
             let extenStr = path.pathExtension
+            MPPrintLog(message: extenStr)
             switch extenStr {
-            case "MP3": break
+            case "MP3": fallthrough
             case "mp3":
                 type = .audio
+            case "html":
+                type = .html
             default:
                 break
             }

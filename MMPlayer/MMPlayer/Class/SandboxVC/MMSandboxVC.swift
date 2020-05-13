@@ -30,6 +30,8 @@ class MMSandboxVC: MMBaseTableViewController {
         super.viewDidLoad()
         setupData ()
         initSubViews()
+        let url = URL(string: currentPath)
+        navigationItem.title = url?.lastPathComponent
     }
     
     func setupData () {
@@ -86,6 +88,8 @@ extension MMSandboxVC {
             pushToVC(path: path)
         } else if item.type == .audio {
             let vc = MMAudioPlayerVC()
+            let audio = MMAudioItem(fileItem: item)
+            vc.audioItem = audio
             navigationController?.pushViewController(vc, animated: true)
         }
     }

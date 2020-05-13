@@ -19,6 +19,7 @@ enum MMPlayerFileItemType {
     case regular    //常规文件
     case directory  //目录
     case audio      //音频
+    case html       //网页
 }
 
 enum MMPlayerFileVisibilityType {

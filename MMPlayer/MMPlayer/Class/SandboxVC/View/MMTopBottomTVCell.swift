@@ -22,8 +22,22 @@ class MMTopBottomTVCell: MMBaseTableViewCell {
                 return
             }
             nameLabel.text = item.name
-            let size = item.size / 1024
-            detailLabel.text = item.modificationDateStr + "  \(size)kb"
+            var size = item.size
+            var sizeType = "bt"
+            if item.size > 1024 {
+               size =  item.size / 1024
+                sizeType = "kb"
+                if (size > 1024) {
+                    size = size / 1024
+                    sizeType = "M"
+                    if size > 1024 {
+                        size = size / 1024
+                        sizeType = "G"
+                    }
+                }
+            }
+            
+            detailLabel.text = item.modificationDateStr + "  \(size)\(sizeType)"
             arrowImg.isHidden = item.type != .directory
         }
     }

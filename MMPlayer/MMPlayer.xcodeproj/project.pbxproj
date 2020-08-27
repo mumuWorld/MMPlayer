@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		22E70E206778F58EC24CC16C /* Pods_MMPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A4C4DDCE95AAA38A68F822 /* Pods_MMPlayerTests.framework */; };
 		9421E1EC03D678C43F707905 /* Pods_MMPlayerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4EC6B77C07E6B7A84491FBE /* Pods_MMPlayerUITests.framework */; };
-		AA293BFAA0FF9BAD7D86EAF2 /* Pods_MMPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B731031DBA95A3E9F34F0C5E /* Pods_MMPlayer.framework */; };
 		B40480A2230303A70040B755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480A1230303A70040B755 /* AppDelegate.swift */; };
 		B40480A6230303A90040B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40480A5230303A90040B755 /* Assets.xcassets */; };
 		B40480B5230303A90040B755 /* MMPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480B4230303A90040B755 /* MMPlayerTests.swift */; };
@@ -20,8 +19,13 @@
 		B41F932F23E5242F00BBA11D /* MMBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */; };
 		B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F933023E52BFE00BBA11D /* MMHomeViewController.swift */; };
 		B41F933323E5360700BBA11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41F933223E5360700BBA11D /* Main.storyboard */; };
+		B4480C8D24762586006B314B /* Pods_MMPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B731031DBA95A3E9F34F0C5E /* Pods_MMPlayer.framework */; };
 		B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471A00F23234DF000E38679 /* MMPlayerModel.swift */; };
 		B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471A01223234EA700E38679 /* MMPlayerEnum.swift */; };
+		B499821524F7CBA000265A4A /* MMVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B499821424F7CBA000265A4A /* MMVideoViewController.swift */; };
+		B499821824F7CDBF00265A4A /* MMVideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */; };
+		B499821A24F7CDDE00265A4A /* MMToolsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B499821924F7CDDE00265A4A /* MMToolsView.xib */; };
+		B4B3D29B249A82170078D0DD /* MMAVTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3D29A249A82170078D0DD /* MMAVTools.swift */; };
 		B4B9BE6F246575AF00AD0F9B /* MMSandboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */; };
 		B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */; };
 		B4B9BE742465765C00AD0F9B /* MMTopBottomTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */; };
@@ -66,6 +70,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B4480C8C24762584006B314B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1C85EBF07D0C671BED1557E5 /* Pods-MMPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayer/Pods-MMPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		393BAD51E78DB8BF987E8515 /* Pods-MMPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayer/Pods-MMPlayer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +107,10 @@
 		B41F933423E537BF00BBA11D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B471A00F23234DF000E38679 /* MMPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerModel.swift; sourceTree = "<group>"; };
 		B471A01223234EA700E38679 /* MMPlayerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerEnum.swift; sourceTree = "<group>"; };
+		B499821424F7CBA000265A4A /* MMVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoViewController.swift; sourceTree = "<group>"; };
+		B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoProgressView.swift; sourceTree = "<group>"; };
+		B499821924F7CDDE00265A4A /* MMToolsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMToolsView.xib; sourceTree = "<group>"; };
+		B4B3D29A249A82170078D0DD /* MMAVTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAVTools.swift; sourceTree = "<group>"; };
 		B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSandboxVC.swift; sourceTree = "<group>"; };
 		B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTopBottomTVCell.swift; sourceTree = "<group>"; };
 		B4B9BE722465765C00AD0F9B /* MMTopBottomTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTopBottomTVCell.xib; sourceTree = "<group>"; };
@@ -127,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA293BFAA0FF9BAD7D86EAF2 /* Pods_MMPlayer.framework in Frameworks */,
+				B4480C8D24762586006B314B /* Pods_MMPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +209,7 @@
 		B40480A0230303A70040B755 /* MMPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				B4E46B6F2473AB0C00020237 /* resource */,
 				DF1C8BB52305082C00A6125A /* Class */,
 				B40480A1230303A70040B755 /* AppDelegate.swift */,
 				B41F933423E537BF00BBA11D /* Info.plist */,
@@ -239,6 +261,24 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		B499821324F7CB6E00265A4A /* MMVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B499821624F7CDA400265A4A /* view */,
+				B499821424F7CBA000265A4A /* MMVideoViewController.swift */,
+				B499821924F7CDDE00265A4A /* MMToolsView.xib */,
+			);
+			path = MMVideoPlayer;
+			sourceTree = "<group>";
+		};
+		B499821624F7CDA400265A4A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		B4B9BE6D2465754C00AD0F9B /* SandboxVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,10 +309,12 @@
 		B4CB4ABC246AC6D400E25C74 /* ToolVC */ = {
 			isa = PBXGroup;
 			children = (
+				B499821324F7CB6E00265A4A /* MMVideoPlayer */,
 				B4CB4AC1246ACCEC00E25C74 /* model */,
 				B4CB4ABD246AC71D00E25C74 /* MMAudioPlayerVC.swift */,
 				B4CB4ABE246AC71D00E25C74 /* MMAudioPlayerVC.xib */,
 				B4CB4AC4246BF4F100E25C74 /* MMAudioPlayerTool.swift */,
+				B4B3D29A249A82170078D0DD /* MMAVTools.swift */,
 			);
 			path = ToolVC;
 			sourceTree = "<group>";
@@ -299,6 +341,21 @@
 				B4CB4ACB246C01F800E25C74 /* MMWKWebViewController.swift */,
 			);
 			path = WkWebView;
+			sourceTree = "<group>";
+		};
+		B4E46B6F2473AB0C00020237 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				B4E46B702473AB2100020237 /* 3th */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		B4E46B702473AB2100020237 /* 3th */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = 3th;
 			sourceTree = "<group>";
 		};
 		B7536766FBF228B5697004C7 /* Frameworks */ = {
@@ -405,6 +462,7 @@
 				B404809B230303A70040B755 /* Frameworks */,
 				B404809C230303A70040B755 /* Resources */,
 				240065A63516A2E9D489F7E4 /* [CP] Embed Pods Frameworks */,
+				B4480C8C24762584006B314B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -503,6 +561,7 @@
 			files = (
 				B4B9BE742465765C00AD0F9B /* MMTopBottomTVCell.xib in Resources */,
 				B40480A6230303A90040B755 /* Assets.xcassets in Resources */,
+				B499821A24F7CDDE00265A4A /* MMToolsView.xib in Resources */,
 				B4CB4AC0246AC71D00E25C74 /* MMAudioPlayerVC.xib in Resources */,
 				B41F933323E5360700BBA11D /* Main.storyboard in Resources */,
 			);
@@ -614,7 +673,9 @@
 				DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */,
 				DF1C8BCD2305082C00A6125A /* DispatchTime+MM_Extension.swift in Sources */,
 				B4CB4AC7246BFD9300E25C74 /* MMHandleFileTool.swift in Sources */,
+				B499821524F7CBA000265A4A /* MMVideoViewController.swift in Sources */,
 				DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */,
+				B4B3D29B249A82170078D0DD /* MMAVTools.swift in Sources */,
 				DF1C8BCC2305082C00A6125A /* NSDate+MM_Extension.swift in Sources */,
 				B413AEBE24668739009B385F /* MMFileItem.swift in Sources */,
 				B4CB4ABB246ABA4900E25C74 /* String+MM_Extension.swift in Sources */,
@@ -628,6 +689,7 @@
 				B41F933123E52BFE00BBA11D /* MMHomeViewController.swift in Sources */,
 				B4CB4ACC246C01F800E25C74 /* MMToastView.swift in Sources */,
 				B471A01023234DF000E38679 /* MMPlayerModel.swift in Sources */,
+				B499821824F7CDBF00265A4A /* MMVideoProgressView.swift in Sources */,
 				DF1C8BCB2305082C00A6125A /* UIColor+MM_Extension.swift in Sources */,
 				B4B9BE6F246575AF00AD0F9B /* MMSandboxVC.swift in Sources */,
 				DF1C8BCE2305082C00A6125A /* UIBarButtonItem+MM_Extension.swift in Sources */,
@@ -793,11 +855,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T6H68KJ4WD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MMPlayer/resource/3th",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/111ed6fa31650d20f2e4c115c3128bf3/Message/MessageTemp/fbb054b920ecfa7b7e8fc4ccbf781ce6/File",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/111ed6fa31650d20f2e4c115c3128bf3/Message/MessageTemp/fbb054b920ecfa7b7e8fc4ccbf781ce6/File",
+				);
 				INFOPLIST_FILE = MMPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mumu.mmplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -814,11 +883,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T6H68KJ4WD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MMPlayer/resource/3th",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/111ed6fa31650d20f2e4c115c3128bf3/Message/MessageTemp/fbb054b920ecfa7b7e8fc4ccbf781ce6/File",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/111ed6fa31650d20f2e4c115c3128bf3/Message/MessageTemp/fbb054b920ecfa7b7e8fc4ccbf781ce6/File",
+				);
 				INFOPLIST_FILE = MMPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mumu.mmplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -18,7 +18,7 @@ class MMVideoViewController: MMBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
 

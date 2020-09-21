@@ -86,9 +86,10 @@ class MMFileManager {
         if !judgePathIsRight(path: path) || !judgePathIsRight(path: toPath) {
             return
         }
+        let fitPath = handleFitPath(path: path)
         let manager = FileManager.default
         do {
-            try manager.copyItem(atPath: path, toPath: toPath)
+            try manager.copyItem(atPath: fitPath, toPath: toPath)
         } catch {
             MPErrorLog(message: error)
         }
@@ -100,5 +101,15 @@ class MMFileManager {
             return false
         }
         return true
+    }
+    
+    class func handleFitPath(path: String) -> String {
+        var newPath = path
+        
+        if path.hasPrefix("file:///private") {
+            let  range = path.index(path.startIndex, offsetBy: 15)..<path.endIndex
+            newPath = String(newPath[range])
+        }
+        return newPath
     }
 }

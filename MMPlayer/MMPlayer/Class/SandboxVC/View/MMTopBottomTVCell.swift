@@ -46,8 +46,15 @@ class MMTopBottomTVCell: MMBaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         botLineEdgeinsets = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
+        //长按手势
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleGesture(sender:)))
+        self.contentView.addGestureRecognizer(longPress)
     }
 
+    @objc func handleGesture(sender: UILongPressGestureRecognizer) {
+        
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

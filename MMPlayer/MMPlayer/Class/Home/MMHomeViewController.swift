@@ -28,4 +28,7 @@ class MMHomeViewController: MMBaseTableViewController {
         navigationController?.pushViewController(boxVC, animated: true)
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
 }

@@ -26,6 +26,11 @@ class MMSandboxVC: MMBaseTableViewController {
     
     lazy var dataArray: [MMFileItem] = []
 
+    lazy var rightBarItem: UIBarButtonItem = {
+        let item = UIBarButtonItem.barButtomItem(title: nil, selectedTitle: nil, titleColor: nil, selectedColor: nil, image: "navi_more", selectedImg: nil, target: self, selecter: #selector(handleBtnClick(sender:)), tag: 10)
+        return item
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData ()
@@ -49,7 +54,9 @@ class MMSandboxVC: MMBaseTableViewController {
         dataArray = newItems
     }
     
+    
     func initSubViews() -> Void {
+        navigationItem.rightBarButtonItem = rightBarItem
         tableview.separatorStyle = .none
         tableview.mm_registerNibCell(classType: MMTopBottomTVCell.self)
         tableview.reloadData();
@@ -60,6 +67,11 @@ class MMSandboxVC: MMBaseTableViewController {
 //        vc.dataArray = dataArr;
         vc.currentPath = path
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func handleBtnClick(sender: UIButton) {
+        MPPrintLog(message :sender)
+        
     }
 }
 

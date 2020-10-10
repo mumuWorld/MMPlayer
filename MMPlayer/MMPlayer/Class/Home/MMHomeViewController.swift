@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MMHomeViewController: MMBaseTableViewController {
+class MMHomeViewController: MMBaseViewController {
     
     lazy var leftBarItem: UIBarButtonItem = {
         let item = UIBarButtonItem.barButtomItem(title: nil, selectedTitle: nil, titleColor: nil, selectedColor: nil, image: "folder_icon", selectedImg: nil, target: self, selecter: #selector(handleBtnClick(sender:)), tag: 10)
@@ -29,6 +29,8 @@ class MMHomeViewController: MMBaseTableViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let video = MMVideoViewController()
+        navigationController?.pushViewController(video, animated: true)
         
     }
 }

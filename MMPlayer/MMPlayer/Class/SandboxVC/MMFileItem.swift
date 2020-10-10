@@ -16,14 +16,15 @@ class MMFileItem: NSObject {
                 return
             }
             let path: URL = URL(fileURLWithPath: newValue)
-            let extenStr = path.pathExtension
+            let extenStr = path.pathExtension.lowercased()
             MPPrintLog(message: extenStr)
             switch extenStr {
-            case "MP3": fallthrough
             case "mp3":
                 type = .audio
             case "html":
                 type = .html
+            case "mp4": 
+                type = .video
             default:
                 break
             }

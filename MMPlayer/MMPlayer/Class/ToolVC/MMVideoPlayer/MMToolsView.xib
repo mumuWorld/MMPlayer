@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MMVideoProgressView" customModule="MMPlayer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="468" height="32"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -18,17 +19,27 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQd-pI-g6H">
                             <rect key="frame" x="0.0" y="14" width="308" height="4"/>
-                            <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="systemGray4Color"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="4" id="M02-y6-bib"/>
                             </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" id="vGo-LV-roO">
+                            <rect key="frame" x="0.0" y="14" width="20" height="4"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_index" translatesAutoresizingMaskIntoConstraints="NO" id="G2a-5t-Bg8">
                             <rect key="frame" x="8" y="6" width="20" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hrb-vQ-loz">
+                            <rect key="frame" x="0.0" y="14" width="7" height="4"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="YQd-pI-g6H" firstAttribute="centerY" secondItem="YxQ-Kt-Vcc" secondAttribute="centerY" id="HTR-t5-svH"/>
                         <constraint firstAttribute="trailing" secondItem="YQd-pI-g6H" secondAttribute="trailing" id="JkF-lq-Lat"/>
@@ -48,7 +59,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="spA-Wz-oZ7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0K9-pf-ntJ"/>
                 <constraint firstItem="Wr2-Mo-7qK" firstAttribute="centerY" secondItem="spA-Wz-oZ7" secondAttribute="centerY" id="2Rj-Rd-b8e"/>
@@ -62,10 +73,66 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="121.73913043478262" y="-32.142857142857139"/>
+            <connections>
+                <outlet property="progressBgView" destination="YxQ-Kt-Vcc" id="O7A-NL-YpG"/>
+                <outlet property="progressContainView" destination="YQd-pI-g6H" id="cpe-qW-HaQ"/>
+                <outlet property="progressIndexImg" destination="G2a-5t-Bg8" id="4Br-4Z-4fi"/>
+                <outlet property="progressLoadingView" destination="vGo-LV-roO" id="Cu5-9N-lIT"/>
+                <outlet property="progressPlayingView" destination="Hrb-vQ-loz" id="szm-OM-PcP"/>
+            </connections>
+            <point key="canvasLocation" x="-33" y="-733"/>
+        </view>
+        <view contentMode="scaleToFill" id="xJy-R5-evp" customClass="MMVideoPlayControlView" customModule="MMPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veb-Vn-yhE">
+                    <rect key="frame" x="195" y="6.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="UYL-rc-b2o"/>
+                        <constraint firstAttribute="height" constant="24" id="yCU-xY-gov"/>
+                    </constraints>
+                    <state key="normal" image="play_btn"/>
+                    <state key="selected" image="pause_btn"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDK-nc-A8p">
+                    <rect key="frame" x="239" y="6.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="OJR-1i-kmp"/>
+                        <constraint firstAttribute="height" constant="24" id="aKZ-jp-RYo"/>
+                    </constraints>
+                    <state key="normal" image="play_next"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-MD-cHE">
+                    <rect key="frame" x="151" y="6.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="1be-sr-ZHb"/>
+                        <constraint firstAttribute="height" constant="24" id="fFp-MI-iQ9"/>
+                    </constraints>
+                    <state key="normal" image="play_pre"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fDK-nc-A8p" firstAttribute="top" secondItem="veb-Vn-yhE" secondAttribute="top" id="37g-cC-H5M"/>
+                <constraint firstItem="IVD-MD-cHE" firstAttribute="top" secondItem="veb-Vn-yhE" secondAttribute="top" id="BNh-bM-bXJ"/>
+                <constraint firstItem="fDK-nc-A8p" firstAttribute="leading" secondItem="veb-Vn-yhE" secondAttribute="trailing" constant="20" id="Tym-7K-Y4X"/>
+                <constraint firstItem="veb-Vn-yhE" firstAttribute="leading" secondItem="IVD-MD-cHE" secondAttribute="trailing" constant="20" id="YPF-rT-gOH"/>
+                <constraint firstItem="veb-Vn-yhE" firstAttribute="centerX" secondItem="xJy-R5-evp" secondAttribute="centerX" id="m4e-il-mmw"/>
+                <constraint firstItem="veb-Vn-yhE" firstAttribute="centerY" secondItem="xJy-R5-evp" secondAttribute="centerY" id="zhh-pk-fPJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-33.333333333333336" y="-590.95982142857144"/>
         </view>
     </objects>
     <resources>
+        <image name="pause_btn" width="24" height="24"/>
+        <image name="play_btn" width="16" height="16"/>
         <image name="play_index" width="24" height="24"/>
+        <image name="play_next" width="16" height="16"/>
+        <image name="play_pre" width="16" height="16"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

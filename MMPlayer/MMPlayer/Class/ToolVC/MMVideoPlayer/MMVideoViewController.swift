@@ -7,29 +7,42 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MMVideoViewController: MMBaseViewController {
     
-    var videoPath:String = ""
+    var videoItem: MMVideoItem?
+
+    var playerTool: MMVideoPlayerTool?
+    
     lazy var touchView:UIView = {
         let tV = UIView()
         return tV
     }()
     
+    var playerLayer: CALayer?
+    
+    lazy var bottomControlView: MMVideoBottomControlView = {
+       let bot = MMVideoBottomControlView()
+        return bot
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(bottomControlView)
+        bottomControlView.frame = CGRect.init(x: 0, y: MQScreenHeight - (100 + MQHomeIndicatorHeight), width: MQScreenWidth, height: 100+MQHomeIndicatorHeight)
+        bottomControlView.status = 0;
+        
+        if let item = videoItem {
+            playerTool = MMVideoPlayerTool(item: item)
+            playerLayer = AVPlayerLayer.init(player: playerTool?.videoPlayer)
+            playerLayer?.frame = view.bounds
+            if let layer = playerLayer {
+                view.layer.addSublayer(layer)
+            }
+            playerTool?.play()
+        }
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

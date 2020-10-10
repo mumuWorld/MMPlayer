@@ -22,6 +22,8 @@ class MMAudioPlayerVC: MMBaseViewController {
             return
         }
         if player.audioItem?.name == item.name { //证明当前播放实例已经存在
+            player.play()
+            playBtn.isSelected = true
             return
         }
         playBtn.isSelected = true

@@ -13,6 +13,8 @@
 		B40480A6230303A90040B755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40480A5230303A90040B755 /* Assets.xcassets */; };
 		B40480B5230303A90040B755 /* MMPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480B4230303A90040B755 /* MMPlayerTests.swift */; };
 		B40480C0230303A90040B755 /* MMPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40480BF230303A90040B755 /* MMPlayerUITests.swift */; };
+		B4095D062531BA70000448F9 /* MMVideoPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4095D052531BA70000448F9 /* MMVideoPlayerTool.swift */; };
+		B4095D0D2531C02F000448F9 /* MMVideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4095D0C2531C02F000448F9 /* MMVideoItem.swift */; };
 		B413AEBC246684AA009B385F /* CellProtorol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B413AEBB246684AA009B385F /* CellProtorol.swift */; };
 		B413AEBE24668739009B385F /* MMFileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B413AEBD24668739009B385F /* MMFileItem.swift */; };
 		B413AEC02466924B009B385F /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B413AEBF2466924B009B385F /* UITableView+Extension.swift */; };
@@ -98,6 +100,8 @@
 		B40480BB230303A90040B755 /* MMPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40480BF230303A90040B755 /* MMPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPlayerUITests.swift; sourceTree = "<group>"; };
 		B40480C1230303A90040B755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4095D052531BA70000448F9 /* MMVideoPlayerTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayerTool.swift; sourceTree = "<group>"; };
+		B4095D0C2531C02F000448F9 /* MMVideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoItem.swift; sourceTree = "<group>"; };
 		B413AEBB246684AA009B385F /* CellProtorol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtorol.swift; sourceTree = "<group>"; };
 		B413AEBD24668739009B385F /* MMFileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFileItem.swift; sourceTree = "<group>"; };
 		B413AEBF2466924B009B385F /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -237,6 +241,25 @@
 			path = MMPlayerUITests;
 			sourceTree = "<group>";
 		};
+		B4095D042531BA5A000448F9 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				B4095D052531BA70000448F9 /* MMVideoPlayerTool.swift */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		B4095D0B2531C002000448F9 /* MMAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B4CB4ABD246AC71D00E25C74 /* MMAudioPlayerVC.swift */,
+				B4CB4ABE246AC71D00E25C74 /* MMAudioPlayerVC.xib */,
+				B4CB4AC4246BF4F100E25C74 /* MMAudioPlayerTool.swift */,
+				B4B3D29A249A82170078D0DD /* MMAVTools.swift */,
+			);
+			path = MMAudioPlayer;
+			sourceTree = "<group>";
+		};
 		B41F932D23E523F200BBA11D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +287,7 @@
 		B499821324F7CB6E00265A4A /* MMVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				B4095D042531BA5A000448F9 /* tool */,
 				B499821624F7CDA400265A4A /* view */,
 				B499821424F7CBA000265A4A /* MMVideoViewController.swift */,
 				B499821924F7CDDE00265A4A /* MMToolsView.xib */,
@@ -309,12 +333,9 @@
 		B4CB4ABC246AC6D400E25C74 /* ToolVC */ = {
 			isa = PBXGroup;
 			children = (
+				B4095D0B2531C002000448F9 /* MMAudioPlayer */,
 				B499821324F7CB6E00265A4A /* MMVideoPlayer */,
 				B4CB4AC1246ACCEC00E25C74 /* model */,
-				B4CB4ABD246AC71D00E25C74 /* MMAudioPlayerVC.swift */,
-				B4CB4ABE246AC71D00E25C74 /* MMAudioPlayerVC.xib */,
-				B4CB4AC4246BF4F100E25C74 /* MMAudioPlayerTool.swift */,
-				B4B3D29A249A82170078D0DD /* MMAVTools.swift */,
 			);
 			path = ToolVC;
 			sourceTree = "<group>";
@@ -323,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				B4CB4AC2246ACD0700E25C74 /* MMAudioItem.swift */,
+				B4095D0C2531C02F000448F9 /* MMVideoItem.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -672,6 +694,7 @@
 				B4CB4AC3246ACD0700E25C74 /* MMAudioItem.swift in Sources */,
 				DF1C8BC72305082C00A6125A /* UIAlert+Extension.swift in Sources */,
 				DF1C8BCD2305082C00A6125A /* DispatchTime+MM_Extension.swift in Sources */,
+				B4095D062531BA70000448F9 /* MMVideoPlayerTool.swift in Sources */,
 				B4CB4AC7246BFD9300E25C74 /* MMHandleFileTool.swift in Sources */,
 				B499821524F7CBA000265A4A /* MMVideoViewController.swift in Sources */,
 				DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */,
@@ -681,6 +704,7 @@
 				B4CB4ABB246ABA4900E25C74 /* String+MM_Extension.swift in Sources */,
 				B4CB4ACD246C01F800E25C74 /* MMWKWebViewController.swift in Sources */,
 				B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */,
+				B4095D0D2531C02F000448F9 /* MMVideoItem.swift in Sources */,
 				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
 				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,
 				B40480A2230303A70040B755 /* AppDelegate.swift in Sources */,

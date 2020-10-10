@@ -103,6 +103,11 @@ extension MMSandboxVC {
             let audio = MMAudioItem(fileItem: item)
             vc.audioItem = audio
             navigationController?.pushViewController(vc, animated: true)
+        } else if item.type == .video {
+            let vc = MMVideoViewController()
+            let video = MMVideoItem(fileItem: item)
+            vc.videoItem = video
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

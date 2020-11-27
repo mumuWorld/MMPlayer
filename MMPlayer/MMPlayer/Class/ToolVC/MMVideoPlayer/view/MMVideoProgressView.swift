@@ -18,11 +18,63 @@ class MMVideoProgressView: UIView {
     
     @IBOutlet weak var progressPlayingView: UIView!
     
-     @IBOutlet weak var progressIndexImg: UIImageView!
+    @IBOutlet weak var progressIndexImg: UIImageView!
 
+    var lastIndexPositionX: CGFloat = 0
+    var maxIndexFrame: CGRect = CGRect.zero
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handleTapGes(sender:)))
+//        pan.delegate = self
+        progressIndexImg.isUserInteractionEnabled = true
+        progressIndexImg.addGestureRecognizer(pan)
+        
+        let tap_2 = UITapGestureRecognizer(target: self, action: #selector(handleTapGes(sender:)))
+        progressBgView.addGestureRecognizer(tap_2)
+        let left = MQScreenWidth - 80
+        maxIndexFrame = CGRect.init(x: left, y: 0, width: left - 80, height: 0)
+    }
+    
+    
+    @objc func handleTapGes(sender: UIGestureRecognizer) {
+        if sender.view == progressBgView {
+            let point = sender.location(in: progressContainView)
+            progressIndexImg.mm_x = point.x
+            MPPrintLog(message: "point=\(point)")
+        } else if sender.view == progressIndexImg {
+            let pan = sender as! UIPanGestureRecognizer
+            let moviePoint = pan.translation(in: progressIndexImg)
+            MPPrintLog(message: "point=\(moviePoint)")
+            
+            switch sender.state {
+            case .began:
+                lastIndexPositionX = progressIndexImg.mm_x
+                maxIndexFrame = progressContainView.frame
+                MPPrintLog(message: "began")
+            case .changed:
+                handleIndexImgPosition(moviePoint: moviePoint)
+                MPPrintLog(message: "changed")
+            case .ended:
+                //这里开发播放
+                MPPrintLog(message: "end")
+            case .cancelled:
+                //回复当前进度
+                MPPrintLog(message: "cancelled")
+            default:
+                break
+            }
+        }
+    }
 }
 
+extension MMVideoProgressView {
+    func handleIndexImgPosition(moviePoint: CGPoint) {
+        let purposeX = lastIndexPositionX + moviePoint.x
+        progressIndexImg.mm_x = max(maxIndexFrame.minX, min(purposeX, maxIndexFrame.maxX))
+        progressPlayingView.mm_right = progressIndexImg.mm_right
+    }
+}
 
 class MMVideoPlayControlView: UIView {
     

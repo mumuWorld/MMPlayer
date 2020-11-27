@@ -34,6 +34,19 @@ extension UIView {
         }
     }
     
+    /// right
+    var mm_right: CGFloat {
+        get {
+            return frame.maxX
+        }
+        set(newValue) {
+            var tempFrame: CGRect = frame
+            tempFrame.size.width  = newValue
+            frame                 = tempFrame
+        }
+    }
+    
+    
     /// height
     var mm_height: CGFloat {
         get {
@@ -66,6 +79,18 @@ extension UIView {
         set(newValue) {
             var tempFrame: CGRect = frame
             tempFrame.size = newValue
+            frame = tempFrame
+        }
+    }
+    
+    /// origin
+    var mm_origin: CGPoint {
+        get {
+            return frame.origin
+        }
+        set(newValue) {
+            var tempFrame: CGRect = frame
+            tempFrame.origin = newValue
             frame = tempFrame
         }
     }

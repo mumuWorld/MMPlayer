@@ -41,7 +41,7 @@ class MMVideoViewController: MMBaseViewController {
             if let layer = playerLayer {
                 view.layer.addSublayer(layer)
             }
-            playerTool?.play()
+//            playerTool?.play()
         }
         
     }

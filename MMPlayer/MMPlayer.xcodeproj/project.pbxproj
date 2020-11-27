@@ -27,6 +27,7 @@
 		B499821524F7CBA000265A4A /* MMVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B499821424F7CBA000265A4A /* MMVideoViewController.swift */; };
 		B499821824F7CDBF00265A4A /* MMVideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */; };
 		B499821A24F7CDDE00265A4A /* MMToolsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B499821924F7CDDE00265A4A /* MMToolsView.xib */; };
+		B4A49227253EF24300B75D7D /* MMVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A49226253EF24300B75D7D /* MMVideoViewModel.swift */; };
 		B4B3D29B249A82170078D0DD /* MMAVTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3D29A249A82170078D0DD /* MMAVTools.swift */; };
 		B4B9BE6F246575AF00AD0F9B /* MMSandboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */; };
 		B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */; };
@@ -114,6 +115,7 @@
 		B499821424F7CBA000265A4A /* MMVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoViewController.swift; sourceTree = "<group>"; };
 		B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoProgressView.swift; sourceTree = "<group>"; };
 		B499821924F7CDDE00265A4A /* MMToolsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMToolsView.xib; sourceTree = "<group>"; };
+		B4A49226253EF24300B75D7D /* MMVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoViewModel.swift; sourceTree = "<group>"; };
 		B4B3D29A249A82170078D0DD /* MMAVTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAVTools.swift; sourceTree = "<group>"; };
 		B4B9BE6E246575AF00AD0F9B /* MMSandboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSandboxVC.swift; sourceTree = "<group>"; };
 		B4B9BE712465765C00AD0F9B /* MMTopBottomTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTopBottomTVCell.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		B499821324F7CB6E00265A4A /* MMVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				B4A49225253EF22000B75D7D /* ViewModel */,
 				B4095D042531BA5A000448F9 /* tool */,
 				B499821624F7CDA400265A4A /* view */,
 				B499821424F7CBA000265A4A /* MMVideoViewController.swift */,
@@ -301,6 +304,14 @@
 				B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		B4A49225253EF22000B75D7D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4A49226253EF24300B75D7D /* MMVideoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B4B9BE6D2465754C00AD0F9B /* SandboxVC */ = {
@@ -700,6 +711,7 @@
 				DF1C8BC92305082C00A6125A /* UIKit+Extension.swift in Sources */,
 				B4B3D29B249A82170078D0DD /* MMAVTools.swift in Sources */,
 				DF1C8BCC2305082C00A6125A /* NSDate+MM_Extension.swift in Sources */,
+				B4A49227253EF24300B75D7D /* MMVideoViewModel.swift in Sources */,
 				B413AEBE24668739009B385F /* MMFileItem.swift in Sources */,
 				B4CB4ABB246ABA4900E25C74 /* String+MM_Extension.swift in Sources */,
 				B4CB4ACD246C01F800E25C74 /* MMWKWebViewController.swift in Sources */,

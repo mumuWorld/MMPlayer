@@ -13,6 +13,9 @@ class MMVideoPlayerTool {
     var videoPlayer: AVPlayer?
     var p_item:MMVideoItem?
     
+    /// 图片帧生成
+    var imageGenerator: AVAssetImageGenerator?
+    
     init(item: MMVideoItem) {
         p_item = item
         
@@ -20,6 +23,7 @@ class MMVideoPlayerTool {
         
         let videoItem = AVPlayerItem(asset: asset)
         videoPlayer = AVPlayer(playerItem: videoItem)
+        imageGenerator = AVAssetImageGenerator(asset: asset)
     }
 }
 

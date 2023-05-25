@@ -890,7 +890,7 @@
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = T6H68KJ4WD;
+				DEVELOPMENT_TEAM = DQMV9NHZ7M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MMPlayer/resource/3th",
@@ -898,13 +898,13 @@
 					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/111ed6fa31650d20f2e4c115c3128bf3/Message/MessageTemp/fbb054b920ecfa7b7e8fc4ccbf781ce6/File",
 				);
 				INFOPLIST_FILE = MMPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mumu.mmplayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mm.world.player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -918,7 +918,7 @@
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = T6H68KJ4WD;
+				DEVELOPMENT_TEAM = DQMV9NHZ7M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MMPlayer/resource/3th",
@@ -926,13 +926,13 @@
 					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/111ed6fa31650d20f2e4c115c3128bf3/Message/MessageTemp/fbb054b920ecfa7b7e8fc4ccbf781ce6/File",
 				);
 				INFOPLIST_FILE = MMPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mumu.mmplayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mm.world.player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,40 +90,42 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veb-Vn-yhE">
-                    <rect key="frame" x="195" y="6.5" width="24" height="24"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4bU-bE-9SR">
+                    <rect key="frame" x="139" y="0.0" width="136" height="37"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-MD-cHE">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="37"/>
+                            <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="0.50375103476821192" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="1be-sr-ZHb"/>
+                            </constraints>
+                            <state key="normal" image="play_pre"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veb-Vn-yhE">
+                            <rect key="frame" x="52" y="0.0" width="32" height="37"/>
+                            <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="0.50375103480000005" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="play_btn"/>
+                            <state key="selected" image="pause_btn"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDK-nc-A8p">
+                            <rect key="frame" x="104" y="0.0" width="32" height="37"/>
+                            <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="0.50375103480000005" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="play_next"/>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="UYL-rc-b2o"/>
-                        <constraint firstAttribute="height" constant="24" id="yCU-xY-gov"/>
+                        <constraint firstItem="fDK-nc-A8p" firstAttribute="width" secondItem="IVD-MD-cHE" secondAttribute="width" id="STA-Z1-RW2"/>
+                        <constraint firstItem="veb-Vn-yhE" firstAttribute="width" secondItem="IVD-MD-cHE" secondAttribute="width" id="izr-4U-Aqu"/>
                     </constraints>
-                    <state key="normal" image="play_btn"/>
-                    <state key="selected" image="pause_btn"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDK-nc-A8p">
-                    <rect key="frame" x="239" y="6.5" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="OJR-1i-kmp"/>
-                        <constraint firstAttribute="height" constant="24" id="aKZ-jp-RYo"/>
-                    </constraints>
-                    <state key="normal" image="play_next"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-MD-cHE">
-                    <rect key="frame" x="151" y="6.5" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="1be-sr-ZHb"/>
-                        <constraint firstAttribute="height" constant="24" id="fFp-MI-iQ9"/>
-                    </constraints>
-                    <state key="normal" image="play_pre"/>
-                </button>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fDK-nc-A8p" firstAttribute="top" secondItem="veb-Vn-yhE" secondAttribute="top" id="37g-cC-H5M"/>
-                <constraint firstItem="IVD-MD-cHE" firstAttribute="top" secondItem="veb-Vn-yhE" secondAttribute="top" id="BNh-bM-bXJ"/>
-                <constraint firstItem="fDK-nc-A8p" firstAttribute="leading" secondItem="veb-Vn-yhE" secondAttribute="trailing" constant="20" id="Tym-7K-Y4X"/>
-                <constraint firstItem="veb-Vn-yhE" firstAttribute="leading" secondItem="IVD-MD-cHE" secondAttribute="trailing" constant="20" id="YPF-rT-gOH"/>
-                <constraint firstItem="veb-Vn-yhE" firstAttribute="centerX" secondItem="xJy-R5-evp" secondAttribute="centerX" id="m4e-il-mmw"/>
-                <constraint firstItem="veb-Vn-yhE" firstAttribute="centerY" secondItem="xJy-R5-evp" secondAttribute="centerY" id="zhh-pk-fPJ"/>
+                <constraint firstAttribute="bottom" secondItem="4bU-bE-9SR" secondAttribute="bottom" id="2dQ-tI-wHW"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4bU-bE-9SR" secondAttribute="trailing" constant="10" id="KGK-c9-Ngd"/>
+                <constraint firstItem="4bU-bE-9SR" firstAttribute="top" secondItem="xJy-R5-evp" secondAttribute="top" id="Y0l-PZ-WCl"/>
+                <constraint firstItem="4bU-bE-9SR" firstAttribute="centerX" secondItem="xJy-R5-evp" secondAttribute="centerX" id="keA-qJ-FJk"/>
+                <constraint firstItem="4bU-bE-9SR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xJy-R5-evp" secondAttribute="leading" constant="10" id="kxy-QY-8Gn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-33.333333333333336" y="-590.95982142857144"/>

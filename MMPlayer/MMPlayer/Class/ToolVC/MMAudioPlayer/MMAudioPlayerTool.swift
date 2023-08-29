@@ -18,7 +18,7 @@ class MMAudioPlayerTool: NSObject {
     var audioItem: MMAudioItem? {
         willSet {
             guard let item = newValue, item.path.count > 0 else {
-                MPErrorLog(message: "文件资源有误，初始化失败")
+                MMErrorLog(message: "文件资源有误，初始化失败")
                 return
             }
             let url = URL(fileURLWithPath: item.path)
@@ -27,7 +27,7 @@ class MMAudioPlayerTool: NSObject {
                 player.numberOfLoops = 0 //不循环
                 player.prepareToPlay()
             } catch {
-                MPErrorLog(message: error)
+                MMErrorLog(message: error)
             }
         }
     }
@@ -40,6 +40,7 @@ class MMAudioPlayerTool: NSObject {
 // MARK: - 播放控制
 extension MMAudioPlayerTool {
     func play() -> Void {
+        try? AVAudioSession.sharedInstance().setCategory(.playback)
         player.play()
     }
     
@@ -59,7 +60,7 @@ extension MMAudioPlayerTool {
             try session.setActive(true, options: AVAudioSession.SetActiveOptions.notifyOthersOnDeactivation)
             try session.setCategory(.playback, options: .mixWithOthers)
         } catch {
-            MPErrorLog(message: error)
+            MMErrorLog(message: error)
         }
     }
 }

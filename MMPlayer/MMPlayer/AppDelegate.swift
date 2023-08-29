@@ -37,21 +37,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if let ann = options[.annotation] as? String {
             annotation = ann
         }
-        MPPrintLog(message: url.absoluteString + ",openInPlace->" + String(openInPlace) + ",source->" + sourceApp + ",annot->" + annotation)
-        MPPrintLog(message: options)
+        MMPrintLog(message: url.absoluteString + ",openInPlace->" + String(openInPlace) + ",source->" + sourceApp + ",annot->" + annotation)
+        MMPrintLog(message: options)
         MMToastView.show(message:"收到文件" + url.lastPathComponent)
         MMHandleFileTool.handleReceiveFile(path: url.absoluteString)
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        MPPrintLog(message: "取消激活")
+        MMPrintLog(message: "取消激活")
         application.beginReceivingRemoteControlEvents()
         
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        MPPrintLog(message: "已经进入后台")
+        MMPrintLog(message: "已经进入后台")
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {

@@ -40,7 +40,7 @@ class MMToastView: UIView {
         toastView.addSubview(textLabel)
         let mainWindow = UIApplication.shared.delegate?.window
         guard let tWindow = mainWindow else {
-            MPErrorLog(message: "没有找到主窗口")
+            MMErrorLog(message: "没有找到主窗口")
             return
         }
         tWindow!.checkSubViewRemove(checkViewStr: "MQToastView")

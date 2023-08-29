@@ -34,7 +34,7 @@ extension MMVideoPlayerTool {
     }
     
     func stop() -> Void {
-//        videoPlayer?.stop()
+        videoPlayer?.pause()
     }
     
     func pause() -> Void {

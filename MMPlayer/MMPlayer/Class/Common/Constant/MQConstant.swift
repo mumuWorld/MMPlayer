@@ -26,6 +26,10 @@ let MQStatusBarHeight = UIDevice.MQIsIphoneXAll ? 44.0 : 20.0
 
 let MQTabBarHeight = UIDevice.MQIsIphoneXAll ? 83.0 : 49.0
 
+var HomeIndicatorHeight: CGFloat {
+    return UIApplication.shared.delegate?.window??.rootViewController?.view.safeAreaInsets.bottom ?? 0
+}
+
 extension UIDevice {
    class var MQIsIphoneXAll:Bool {
         let maxH = max(MQScreenWidth, MQScreenHeight)
@@ -37,7 +41,7 @@ extension UIDevice {
 }
 
 
-func MPPrintLog<T>(message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+func MMPrintLog<T>(message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     #if DEBUG
     // 1.获取文件名,包含后缀名
     let name = (file as NSString).lastPathComponent
@@ -50,7 +54,7 @@ func MPPrintLog<T>(message : T, file : String = #file, funcName : String = #func
     #endif
 }
 
-func MPErrorLog<T>(message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+func MMErrorLog<T>(message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     #if DEBUG
     // 1.获取文件名,包含后缀名
     let name = (file as NSString).lastPathComponent

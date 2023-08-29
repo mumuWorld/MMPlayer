@@ -23,7 +23,7 @@ class MMHomeViewController: MMBaseViewController {
     }
     
     @objc func handleBtnClick(sender: UIButton) {
-        MPPrintLog(message :sender)
+        MMPrintLog(message :sender)
         let boxVC = MMSandboxVC()
         navigationController?.pushViewController(boxVC, animated: true)
     }

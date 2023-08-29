@@ -57,7 +57,7 @@ extension MMWKWebViewController {
 
 extension MMWKWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        MPPrintLog(message: "didFinish")
+        MMPrintLog(message: "didFinish")
 //        LMLoadingView.dismiss()
         guard let title = webView.title else { return }
         navigationItem.title = title
@@ -72,7 +72,7 @@ extension MMWKWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        MPPrintLog(message: "didCommit")
+        MMPrintLog(message: "didCommit")
 //        LMLoadingView.show()
     }
 }

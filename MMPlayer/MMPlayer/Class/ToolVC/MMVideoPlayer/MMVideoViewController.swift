@@ -31,8 +31,11 @@ class MMVideoViewController: MMBaseViewController {
         super.viewDidLoad()
         
         view.addSubview(bottomControlView)
-        bottomControlView.frame = CGRect.init(x: 0, y: MQScreenHeight - (100 + MQHomeIndicatorHeight), width: MQScreenWidth, height: 100+MQHomeIndicatorHeight)
+//        bottomControlView.frame = CGRect.init(x: 0, y: MQScreenHeight - (100 + MQHomeIndicatorHeight), width: MQScreenWidth, height: 100+MQHomeIndicatorHeight)
         bottomControlView.status = 0;
+        bottomControlView.snp.makeConstraints { make in
+            make.bottom.leading.trailing.equalToSuperview()
+        }
         
         if let item = videoItem {
             playerTool = MMVideoPlayerTool(item: item)
@@ -41,7 +44,9 @@ class MMVideoViewController: MMBaseViewController {
             if let layer = playerLayer {
                 view.layer.addSublayer(layer)
             }
-//            playerTool?.play()
+            try? AVAudioSession.sharedInstance().setCategory(.playback)
+            try? AVAudioSession.sharedInstance().setActive(true)
+            playerTool?.play()
         }
         
     }

@@ -70,7 +70,7 @@ class MMSandboxVC: MMBaseTableViewController {
     }
     
     @objc func handleBtnClick(sender: UIButton) {
-        MPPrintLog(message :sender)
+        MMPrintLog(message :sender)
         
     }
 }
@@ -91,7 +91,7 @@ extension MMSandboxVC {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        MPPrintLog(message: indexPath)
+        MMPrintLog(message: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         
         let item = self.dataArray[indexPath.row]

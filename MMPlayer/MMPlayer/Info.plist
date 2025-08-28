@@ -40,6 +40,16 @@
 				<string>public.content</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Movie file</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.movie</string>
+                <string>public.mpeg-4</string>
+                <string>com.apple.quicktime-movie</string>
+            </array>
+        </dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>

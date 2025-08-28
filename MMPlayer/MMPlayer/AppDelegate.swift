@@ -40,8 +40,31 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         MMPrintLog(message: url.absoluteString + ",openInPlace->" + String(openInPlace) + ",source->" + sourceApp + ",annot->" + annotation)
         MMPrintLog(message: options)
         MMToastView.show(message:"收到文件" + url.lastPathComponent)
-        MMHandleFileTool.handleReceiveFile(path: url.absoluteString)
+        handleOpenFile(url: url)
+        
         return true
+    }
+    
+    func handleOpenFile(url: URL) {
+        if ProcessInfo.processInfo.isMacCatalystApp {
+            handleMacOpenFile(url: url)
+        } else {
+            MMHandleFileTool.handleReceiveFile(path: url.absoluteString)
+        }
+    }
+    
+    func handleMacOpenFile(url: URL) {
+        guard let item =  MMFileManager.getPathProperty(path: url.path) else { return }
+        switch item.type {
+        case .video:
+            let vc = MMVideoViewController()
+            let video = MMVideoItem(fileItem: item)
+            vc.videoItem = video
+            UIViewController.currentViewController?.pushOrPresent(vc)
+        default:
+            MMPrintLog(message: "暂不支持～～～～")
+        }
+        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

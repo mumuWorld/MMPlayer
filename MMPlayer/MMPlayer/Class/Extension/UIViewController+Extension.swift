@@ -13,6 +13,7 @@ protocol MQViewLoadSubViewProtocol {
 }
 
 extension UIViewController {
+    
     func setNavigationBarAlpha(hideShadowImg: Bool = false) -> Void {
         if self.navigationController != nil {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -45,5 +46,43 @@ extension UIViewController {
             }
         }
         return nil
+    }
+}
+
+import UIKit
+
+extension UIViewController {
+    
+    /// 推入导航栈，如果没有 navigationController 就 modally present
+    func pushOrPresent(_ vc: UIViewController, animated: Bool = true) {
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: animated)
+        } else {
+            let navController = UINavigationController(rootViewController: vc)
+            self.present(navController, animated: animated, completion: nil)
+        }
+    }
+    
+    /// 获取当前最顶层可见的 UIViewController
+    static var currentViewController: UIViewController? {
+        guard let rootVC = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive })?
+                .windows.first(where: { $0.isKeyWindow })?.rootViewController else {
+            return nil
+        }
+        return getTopViewController(rootVC)
+    }
+    
+    private static func getTopViewController(_ vc: UIViewController) -> UIViewController {
+        if let nav = vc as? UINavigationController {
+            return getTopViewController(nav.visibleViewController ?? nav)
+        } else if let tab = vc as? UITabBarController {
+            return getTopViewController(tab.selectedViewController ?? tab)
+        } else if let presented = vc.presentedViewController {
+            return getTopViewController(presented)
+        } else {
+            return vc
+        }
     }
 }

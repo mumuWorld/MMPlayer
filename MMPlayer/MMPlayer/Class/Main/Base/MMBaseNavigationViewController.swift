@@ -1,5 +1,5 @@
 //
-//  MQBaseNavigationViewController.swift
+//  MMBaseNavigationViewController.swift
 //  MMQRCode
 //
 //  Created by yangjie on 2019/7/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MQBaseNavigationViewController: UINavigationController {
+class MMBaseNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +32,14 @@ class MQBaseNavigationViewController: UINavigationController {
             let popItem = UIBarButtonItem.barButtomItem(title: nil, selectedTitle: nil, titleColor: nil, selectedColor: nil, image: itemStyle == PopItemStyle.PopItemBlack ? "btn_back_black" : "btn_back_white" , selectedImg: nil, target: viewController, selecter: #selector(popToPreviousVC))
             viewController.navigationItem.leftBarButtonItem = popItem
         }
-        super .pushViewController(viewController, animated: true)
+        super.pushViewController(viewController, animated: true)
     }
 //    override func popViewController(animated: Bool) -> UIViewController? {
 //        return super .popViewController(animated: animated)
 //    }
 }
 
-extension MQBaseNavigationViewController: UIGestureRecognizerDelegate {
+extension MMBaseNavigationViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if viewControllers.count > 1 {
             return true

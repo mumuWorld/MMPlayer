@@ -17,7 +17,7 @@ class MQTabbarController: UITabBarController {
 //            return;
 //        }
         let home = MMHomeViewController()
-        let homeNavi = MQBaseNavigationViewController(rootViewController: home)
+        let homeNavi = MMBaseNavigationViewController(rootViewController: home)
         home.title = "MMPlayer"
         addChild(homeNavi)
     }

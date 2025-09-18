@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24057"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,11 +78,13 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="currentTimeLabel" destination="spA-Wz-oZ7" id="6qu-nu-MOe"/>
                 <outlet property="progressBgView" destination="YxQ-Kt-Vcc" id="O7A-NL-YpG"/>
                 <outlet property="progressContainView" destination="YQd-pI-g6H" id="cpe-qW-HaQ"/>
                 <outlet property="progressIndexImg" destination="G2a-5t-Bg8" id="4Br-4Z-4fi"/>
                 <outlet property="progressLoadingView" destination="vGo-LV-roO" id="Cu5-9N-lIT"/>
                 <outlet property="progressPlayingView" destination="Hrb-vQ-loz" id="szm-OM-PcP"/>
+                <outlet property="remainingTimeLabel" destination="Wr2-Mo-7qK" id="Zyk-Hf-pfW"/>
             </connections>
             <point key="canvasLocation" x="-33" y="-733"/>
         </view>
@@ -100,17 +102,26 @@
                                 <constraint firstAttribute="width" constant="32" id="1be-sr-ZHb"/>
                             </constraints>
                             <state key="normal" image="play_pre"/>
+                            <connections>
+                                <action selector="pre:" destination="xJy-R5-evp" eventType="touchUpInside" id="YPO-aO-DRj"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veb-Vn-yhE">
                             <rect key="frame" x="52" y="0.0" width="32" height="37"/>
                             <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="0.50375103480000005" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" image="play_btn"/>
                             <state key="selected" image="pause_btn"/>
+                            <connections>
+                                <action selector="playOrPause:" destination="xJy-R5-evp" eventType="touchUpInside" id="zlh-u7-cnl"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDK-nc-A8p">
                             <rect key="frame" x="104" y="0.0" width="32" height="37"/>
                             <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="0.50375103480000005" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" image="play_next"/>
+                            <connections>
+                                <action selector="next:" destination="xJy-R5-evp" eventType="touchUpInside" id="l0C-TI-PSu"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -128,6 +139,11 @@
                 <constraint firstItem="4bU-bE-9SR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xJy-R5-evp" secondAttribute="leading" constant="10" id="kxy-QY-8Gn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nextBtn" destination="fDK-nc-A8p" id="G4Z-9n-mrD"/>
+                <outlet property="playBtn" destination="veb-Vn-yhE" id="uhA-iW-ZaF"/>
+                <outlet property="preBtn" destination="IVD-MD-cHE" id="ugC-0Y-Ys9"/>
+            </connections>
             <point key="canvasLocation" x="-33.333333333333336" y="-590.95982142857144"/>
         </view>
     </objects>

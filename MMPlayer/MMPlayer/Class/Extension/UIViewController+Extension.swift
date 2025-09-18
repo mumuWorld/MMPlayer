@@ -56,10 +56,21 @@ extension UIViewController {
     /// 推入导航栈，如果没有 navigationController 就 modally present
     func pushOrPresent(_ vc: UIViewController, animated: Bool = true) {
         if let nav = self.navigationController {
+            // 如果当前控制器有导航控制器，直接推入
             nav.pushViewController(vc, animated: animated)
         } else {
-            let navController = UINavigationController(rootViewController: vc)
-            self.present(navController, animated: animated, completion: nil)
+            // 如果当前控制器没有导航控制器，尝试找到根导航控制器
+            if let rootNav = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive })?
+                .windows.first(where: { $0.isKeyWindow })?.rootViewController as? UINavigationController {
+                // 使用根导航控制器推入，这样可以保持正确的导航层级
+                rootNav.pushViewController(vc, animated: animated)
+            } else {
+                // 最后的备用方案：以模态方式呈现，但要包装在导航控制器中
+                let navController = UINavigationController(rootViewController: vc)
+                self.present(navController, animated: animated, completion: nil)
+            }
         }
     }
     

@@ -27,7 +27,7 @@ class MMSandboxVC: MMBaseTableViewController {
     lazy var dataArray: [MMFileItem] = []
 
     lazy var rightBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem.barButtomItem(title: nil, selectedTitle: nil, titleColor: nil, selectedColor: nil, image: "navi_more", selectedImg: nil, target: self, selecter: #selector(handleBtnClick(sender:)), tag: 10)
+        let item = UIBarButtonItem.barButtomItem(title: nil, selectedTitle: nil, titleColor: nil, selectedColor: nil, image: "navi_more", selectedImg: nil, target: self, selecter: #selector(handleRightBarItemClick(sender:)), tag: 10)
         return item
     }()
     
@@ -37,11 +37,22 @@ class MMSandboxVC: MMBaseTableViewController {
         initSubViews()
         let url = URL(string: currentPath)
         navigationItem.title = url?.lastPathComponent
+        
+        navigationItem.leftBarButtonItem = leftBarItem
     }
     
     func setupData () {
         let array = MMFileManager.getDirectorAllItems(path: currentPath)
         var newItems: [MMFileItem] = Array()
+        
+        // 如果是根目录，添加"我收到的文件"选项
+        if currentPath == rootPath {
+            if let receivedPath = MMFileManager.receivedPath, let receivedItem = MMFileManager.getPathProperty(path: receivedPath) {
+                receivedItem.name = "我收到的文件"
+                newItems.append(receivedItem)
+            }
+        }
+        
         if let items = array {
             for name in items {
                 let path = currentPath.appendPathComponent(string: name)
@@ -53,6 +64,7 @@ class MMSandboxVC: MMBaseTableViewController {
         }
         dataArray = newItems
     }
+    
     
     
     func initSubViews() -> Void {
@@ -69,8 +81,8 @@ class MMSandboxVC: MMBaseTableViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func handleBtnClick(sender: UIButton) {
-        MMPrintLog(message :sender)
+    @objc func handleRightBarItemClick(sender: UIButton) {
+        MMPrintLog(message: sender)
         
     }
 }
@@ -96,7 +108,15 @@ extension MMSandboxVC {
         
         let item = self.dataArray[indexPath.row]
         if item.type == .directory {
-            let path = currentPath.appendPathComponent(string: item.name)
+            var path: String
+            
+            // 特殊处理"我收到的文件"
+            if item.name == "我收到的文件" {
+                path = MMFileManager.receivedPath ?? ""
+            } else {
+                path = currentPath.appendPathComponent(string: item.name)
+            }
+            
             pushToVC(path: path)
         } else if item.type == .audio {
             let vc = MMAudioPlayerVC()
@@ -110,4 +130,5 @@ extension MMSandboxVC {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
 }

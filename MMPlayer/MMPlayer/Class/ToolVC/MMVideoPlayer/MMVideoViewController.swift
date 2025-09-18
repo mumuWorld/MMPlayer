@@ -13,41 +13,184 @@ class MMVideoViewController: MMBaseViewController {
     
     var videoItem: MMVideoItem?
 
-    var playerTool: MMVideoPlayerTool?
     
     lazy var touchView:UIView = {
         let tV = UIView()
         return tV
     }()
     
-    var playerLayer: CALayer?
-    
-    lazy var bottomControlView: MMVideoBottomControlView = {
-       let bot = MMVideoBottomControlView()
-        return bot
+    lazy var videoPlayView: MMVideoPlayView = {
+        let item = MMVideoPlayView()
+        return item
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(bottomControlView)
-//        bottomControlView.frame = CGRect.init(x: 0, y: MQScreenHeight - (100 + MQHomeIndicatorHeight), width: MQScreenWidth, height: 100+MQHomeIndicatorHeight)
-        bottomControlView.status = 0;
-        bottomControlView.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview()
+        view.addSubview(videoPlayView)
+        setupNavigationItems()
+        setupNavigationTitle()
+        setupNavigationBarVisibility()
+        
+        videoPlayView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
         
         if let item = videoItem {
-            playerTool = MMVideoPlayerTool(item: item)
-            playerLayer = AVPlayerLayer.init(player: playerTool?.videoPlayer)
-            playerLayer?.frame = view.bounds
-            if let layer = playerLayer {
-                view.layer.addSublayer(layer)
+            // 确保布局在播放前已经正确设置
+            DispatchQueue.main.async { [weak self] in
+                self?.videoPlayView.updateLayoutForSettingsChange()
+                self?.videoPlayView.playVideo(with: item)
             }
-            try? AVAudioSession.sharedInstance().setCategory(.playback)
-            try? AVAudioSession.sharedInstance().setActive(true)
-            playerTool?.play()
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 确保视频播放页面的右滑返回手势正常
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    private func setupNavigationItems() {
+        // 添加设置按钮到导航栏右侧
+        let settingsButton = UIBarButtonItem(
+            image: UIImage(systemName: "gear"),
+            style: .plain,
+            target: self,
+            action: #selector(showSettings)
+        )
+        settingsButton.tintColor = UIColor.mm_colorFromHexString(color_vaule: "1296db")
+        navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    private func setupNavigationTitle() {
+        // 设置导航栏标题为文件名
+        if let item = videoItem, !item.name.isEmpty {
+            title = item.name
+        } else {
+            title = "视频播放"
+        }
+    }
+    
+    private func setupNavigationBarVisibility() {
+        // 根据设置决定导航栏初始状态
+        updateNavigationBarVisibility()
+        
+        // 监听播放状态变化来控制导航栏显示
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleControlsVisibilityChanged),
+            name: NSNotification.Name("MMVideoControlsVisibilityChanged"),
+            object: nil
+        )
+    }
+    
+    private func updateNavigationBarVisibility() {
+        if MMVideoPlayerSettings.shared.controlsAlwaysVisible {
+            // 常驻模式：始终显示导航栏
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        } else {
+            // 非常驻模式：导航栏跟随控制条状态
+            // 这里需要从通知中获取控制条的当前状态
+            // 暂时隐藏导航栏，让用户交互时显示
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
+    
+    @objc private func handleControlsVisibilityChanged(_ notification: Notification) {
+        if MMVideoPlayerSettings.shared.controlsAlwaysVisible {
+            // 常驻模式：始终显示导航栏
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        } else {
+            // 非常驻模式：导航栏跟随控制条状态
+            if let userInfo = notification.userInfo,
+               let isVisible = userInfo["isVisible"] as? Bool {
+                navigationController?.setNavigationBarHidden(!isVisible, animated: true)
+            }
+        }
+        
+        // 更新视频播放区域布局
+        videoPlayView.updateLayoutForSettingsChange()
+    }
+    
+    @objc private func showSettings() {
+        let settingsVC = MMVideoPlayerSettingsViewController()
+        navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    override func naviBarPopItemStyle() -> PopItemStyle {
+        return .PopItemWhite
+    }
+    
+    deinit {
+        // 确保在控制器销毁时停止播放
+        videoPlayView.stopPlayback()
+        
+        // 移除通知监听
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - 键盘监听
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // 页面即将消失时暂停播放
+        videoPlayView.pausePlayback()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        resignFirstResponder()
+        
+        // 页面完全消失时停止播放
+        videoPlayView.stopPlayback()
+    }
+    
+    // 监听键盘按下事件
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard let key = presses.first?.key else {
+            super.pressesBegan(presses, with: event)
+            return
+        }
+        
+        switch key.keyCode {
+        case .keyboardSpacebar:
+            // 处理空格键按下 - 切换播放/暂停状态
+            togglePlayPause()
+        case .keyboardLeftArrow:
+            // 处理左箭头键 - 快退
+            handleSeekBackward()
+        case .keyboardRightArrow:
+            // 处理右箭头键 - 快进
+            handleSeekForward()
+        default:
+            super.pressesBegan(presses, with: event)
+        }
+    }
+    
+    private func togglePlayPause() {
+        videoPlayView.handleSpaceKeyToggle()
+    }
+    
+    private func handleSeekForward() {
+        let seekTime = MMVideoPlayerSettings.shared.seekTime
+        videoPlayView.handleSeekForward(seconds: seekTime)
+    }
+    
+    private func handleSeekBackward() {
+        let seekTime = MMVideoPlayerSettings.shared.seekTime
+        videoPlayView.handleSeekBackward(seconds: seekTime)
+    }
+    
 }

@@ -88,10 +88,32 @@ class MMFileManager {
         }
         let fitPath = handleFitPath(path: path)
         let manager = FileManager.default
+        
+        MMPrintLog(message: "准备复制文件:")
+        MMPrintLog(message: "源路径: \(fitPath)")
+        MMPrintLog(message: "目标路径: \(toPath)")
+        
+        // 检查源文件是否存在
+        if !manager.fileExists(atPath: fitPath) {
+            MMErrorLog(message: "源文件不存在: \(fitPath)")
+            return
+        }
+        
+        // 如果目标文件已存在，先删除
+        if manager.fileExists(atPath: toPath) {
+            do {
+                try manager.removeItem(atPath: toPath)
+                MMPrintLog(message: "已删除现有目标文件")
+            } catch {
+                MMErrorLog(message: "删除现有文件失败: \(error)")
+            }
+        }
+        
         do {
             try manager.copyItem(atPath: fitPath, toPath: toPath)
+            MMPrintLog(message: "文件复制成功")
         } catch {
-            MMErrorLog(message: error)
+            MMErrorLog(message: "文件复制失败: \(error)")
         }
     }
     
@@ -106,10 +128,27 @@ class MMFileManager {
     class func handleFitPath(path: String) -> String {
         var newPath = path
         
-        if path.hasPrefix("file:///private") {
-            let  range = path.index(path.startIndex, offsetBy: 15)..<path.endIndex
-            newPath = String(newPath[range])
+        // 处理 file:// URL
+        if path.hasPrefix("file://") {
+            if let url = URL(string: path) {
+                newPath = url.path
+            } else {
+                // 备用处理：手动移除 file:// 前缀
+                if path.hasPrefix("file:///private") {
+                    let range = path.index(path.startIndex, offsetBy: 15)..<path.endIndex
+                    newPath = String(path[range])
+                } else if path.hasPrefix("file:///") {
+                    let range = path.index(path.startIndex, offsetBy: 7)..<path.endIndex
+                    newPath = String(path[range])
+                }
+            }
         }
+        
+        // 解码 URL 编码的字符（如 %20 -> 空格）
+        if let decodedPath = newPath.removingPercentEncoding {
+            newPath = decodedPath
+        }
+        
         return newPath
     }
 }

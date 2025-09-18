@@ -7,17 +7,17 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
 			<key>CFBundleTypeName</key>
 			<string>All Files</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.data</string>
 				<string>public.content</string>
 			</array>
-			<key>CFBundleTypeIconFiles</key>
-			<array/>
-			<key>LSHandlerRank</key>
-			<string>Alternate</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
@@ -40,16 +40,16 @@
 				<string>public.content</string>
 			</array>
 		</dict>
-        <dict>
-            <key>CFBundleTypeName</key>
-            <string>Movie file</string>
-            <key>LSItemContentTypes</key>
-            <array>
-                <string>public.movie</string>
-                <string>public.mpeg-4</string>
-                <string>com.apple.quicktime-movie</string>
-            </array>
-        </dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Movie file</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.movie</string>
+				<string>public.mpeg-4</string>
+				<string>com.apple.quicktime-movie</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -73,6 +73,17 @@
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>MMPlayer Video Handler</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mmplayer</string>
+			</array>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

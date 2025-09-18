@@ -18,8 +18,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         let rootVC = MQTabbarController()
-        let navi = MQBaseNavigationViewController(rootViewController: rootVC)
-        window?.rootViewController = navi
+//        let navi = MMBaseNavigationViewController(rootViewController: rootVC)
+        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
         return true
     }
@@ -39,32 +39,38 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
         MMPrintLog(message: url.absoluteString + ",openInPlace->" + String(openInPlace) + ",source->" + sourceApp + ",annot->" + annotation)
         MMPrintLog(message: options)
+        
+        // 检查是否为自定义 URL scheme
+        if url.scheme == "mmplayer" {
+            return handleCustomURLScheme(url: url)
+        }
+        
         MMToastView.show(message:"收到文件" + url.lastPathComponent)
-        handleOpenFile(url: url)
+        MMHandleFileTool.handleOpenFile(url: url)
         
         return true
     }
     
-    func handleOpenFile(url: URL) {
-        if ProcessInfo.processInfo.isMacCatalystApp {
-            handleMacOpenFile(url: url)
-        } else {
-            MMHandleFileTool.handleReceiveFile(path: url.absoluteString)
-        }
-    }
-    
-    func handleMacOpenFile(url: URL) {
-        guard let item =  MMFileManager.getPathProperty(path: url.path) else { return }
-        switch item.type {
-        case .video:
-            let vc = MMVideoViewController()
-            let video = MMVideoItem(fileItem: item)
-            vc.videoItem = video
-            UIViewController.currentViewController?.pushOrPresent(vc)
-        default:
-            MMPrintLog(message: "暂不支持～～～～")
+    func handleCustomURLScheme(url: URL) -> Bool {
+        guard url.host == "video" else { return false }
+        
+        // 解析 URL 参数
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        guard let queryItems = components?.queryItems,
+              let pathItem = queryItems.first(where: { $0.name == "path" }),
+              let videoPath = pathItem.value,
+              let videoURL = URL(string: videoPath) else {
+            return false
         }
         
+        MMToastView.show(message: "从相册接收视频: \(videoURL.lastPathComponent)")
+        
+        // 直接处理视频文件
+        DispatchQueue.main.async {
+            MMHandleFileTool.handleOpenFile(url: videoURL)
+        }
+        
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

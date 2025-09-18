@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		22E70E206778F58EC24CC16C /* Pods_MMPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A4C4DDCE95AAA38A68F822 /* Pods_MMPlayerTests.framework */; };
+		65551CFA2E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65551CF92E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift */; };
+		65551CFB2E7AA94000DC7C4D /* MMVideoPlayerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65551CF82E7AA94000DC7C4D /* MMVideoPlayerSettings.swift */; };
+		65551D022E7AB51400DC7C4D /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */; };
+		65551D0E2E7AB51500DC7C4D /* MMActionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 65551D002E7AB51400DC7C4D /* MMActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65E6ADE72E614410008763F8 /* MMVideoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6ADE62E614410008763F8 /* MMVideoPlayView.swift */; };
 		65F0D8DC2A1F43340088565E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F0D8DB2A1F43340088565E /* ShareViewController.swift */; };
 		65F0D8DF2A1F43340088565E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F0D8DD2A1F43340088565E /* MainInterface.storyboard */; };
 		65F0D8E32A1F43340088565E /* MMShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 65F0D8D92A1F43340088565E /* MMShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -55,11 +60,18 @@
 		DF1C8BCF2305082C00A6125A /* MQConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC12305082C00A6125A /* MQConstant.swift */; };
 		DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC42305082C00A6125A /* MQTabbarController.swift */; };
 		DF1C8BD12305082C00A6125A /* MMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC52305082C00A6125A /* MMBaseViewController.swift */; };
-		DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */; };
+		DF1C8BD22305082C00A6125A /* MMBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BC62305082C00A6125A /* MMBaseNavigationViewController.swift */; };
 		DF1C8BD523050E4200A6125A /* MMFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C8BD423050E4200A6125A /* MMFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		65551D0C2E7AB51500DC7C4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4048096230303A70040B755 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65551CFF2E7AB51400DC7C4D;
+			remoteInfo = MMActionExtension;
+		};
 		65F0D8E12A1F43340088565E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4048096230303A70040B755 /* Project object */;
@@ -90,6 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				65551D0E2E7AB51500DC7C4D /* MMActionExtension.appex in Embed Foundation Extensions */,
 				65F0D8E32A1F43340088565E /* MMShareExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -110,6 +123,12 @@
 /* Begin PBXFileReference section */
 		1C85EBF07D0C671BED1557E5 /* Pods-MMPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayer/Pods-MMPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		393BAD51E78DB8BF987E8515 /* Pods-MMPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayer/Pods-MMPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		65551CF82E7AA94000DC7C4D /* MMVideoPlayerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayerSettings.swift; sourceTree = "<group>"; };
+		65551CF92E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayerSettingsViewController.swift; sourceTree = "<group>"; };
+		65551D002E7AB51400DC7C4D /* MMActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		65551D442E7BA66600DC7C4D /* MMShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMShareExtension.entitlements; sourceTree = "<group>"; };
+		65E6ADE62E614410008763F8 /* MMVideoPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayView.swift; sourceTree = "<group>"; };
 		65F0D8D92A1F43340088565E /* MMShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F0D8DB2A1F43340088565E /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		65F0D8DE2A1F43340088565E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -170,11 +189,33 @@
 		DF1C8BC12305082C00A6125A /* MQConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQConstant.swift; sourceTree = "<group>"; };
 		DF1C8BC42305082C00A6125A /* MQTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTabbarController.swift; sourceTree = "<group>"; };
 		DF1C8BC52305082C00A6125A /* MMBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMBaseViewController.swift; sourceTree = "<group>"; };
-		DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQBaseNavigationViewController.swift; sourceTree = "<group>"; };
+		DF1C8BC62305082C00A6125A /* MMBaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMBaseNavigationViewController.swift; sourceTree = "<group>"; };
 		DF1C8BD423050E4200A6125A /* MMFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		65551D0F2E7AB51500DC7C4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 65551CFF2E7AB51400DC7C4D /* MMActionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		65551D032E7AB51500DC7C4D /* MMActionExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (65551D0F2E7AB51500DC7C4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMActionExtension; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		65551CFD2E7AB51400DC7C4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65551D022E7AB51400DC7C4D /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65F0D8D62A1F43340088565E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +253,7 @@
 		65F0D8DA2A1F43340088565E /* MMShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				65551D442E7BA66600DC7C4D /* MMShareExtension.entitlements */,
 				65F0D8DB2A1F43340088565E /* ShareViewController.swift */,
 				65F0D8DD2A1F43340088565E /* MainInterface.storyboard */,
 				65F0D8E02A1F43340088565E /* Info.plist */,
@@ -239,6 +281,7 @@
 				B40480B3230303A90040B755 /* MMPlayerTests */,
 				B40480BE230303A90040B755 /* MMPlayerUITests */,
 				65F0D8DA2A1F43340088565E /* MMShareExtension */,
+				65551D032E7AB51500DC7C4D /* MMActionExtension */,
 				B404809F230303A70040B755 /* Products */,
 				AEC6A9C5959A8BA20EACBCAE /* Pods */,
 				B7536766FBF228B5697004C7 /* Frameworks */,
@@ -252,6 +295,7 @@
 				B40480B0230303A90040B755 /* MMPlayerTests.xctest */,
 				B40480BB230303A90040B755 /* MMPlayerUITests.xctest */,
 				65F0D8D92A1F43340088565E /* MMShareExtension.appex */,
+				65551D002E7AB51400DC7C4D /* MMActionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +376,8 @@
 		B499821324F7CB6E00265A4A /* MMVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				65551CF82E7AA94000DC7C4D /* MMVideoPlayerSettings.swift */,
+				65551CF92E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift */,
 				B4A49225253EF22000B75D7D /* ViewModel */,
 				B4095D042531BA5A000448F9 /* tool */,
 				B499821624F7CDA400265A4A /* view */,
@@ -345,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				B499821724F7CDBF00265A4A /* MMVideoProgressView.swift */,
+				65E6ADE62E614410008763F8 /* MMVideoPlayView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -425,6 +472,7 @@
 				B731031DBA95A3E9F34F0C5E /* Pods_MMPlayer.framework */,
 				85A4C4DDCE95AAA38A68F822 /* Pods_MMPlayerTests.framework */,
 				B4EC6B77C07E6B7A84491FBE /* Pods_MMPlayerUITests.framework */,
+				65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -494,7 +542,7 @@
 				B4B9BE75246577FD00AD0F9B /* view */,
 				DF1C8BC42305082C00A6125A /* MQTabbarController.swift */,
 				DF1C8BC52305082C00A6125A /* MMBaseViewController.swift */,
-				DF1C8BC62305082C00A6125A /* MQBaseNavigationViewController.swift */,
+				DF1C8BC62305082C00A6125A /* MMBaseNavigationViewController.swift */,
 				B41F932E23E5242F00BBA11D /* MMBaseTableViewController.swift */,
 			);
 			path = Base;
@@ -514,6 +562,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		65551CFF2E7AB51400DC7C4D /* MMActionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65551D102E7AB51500DC7C4D /* Build configuration list for PBXNativeTarget "MMActionExtension" */;
+			buildPhases = (
+				65551CFC2E7AB51400DC7C4D /* Sources */,
+				65551CFD2E7AB51400DC7C4D /* Frameworks */,
+				65551CFE2E7AB51400DC7C4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				65551D032E7AB51500DC7C4D /* MMActionExtension */,
+			);
+			name = MMActionExtension;
+			packageProductDependencies = (
+			);
+			productName = MMActionExtension;
+			productReference = 65551D002E7AB51400DC7C4D /* MMActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		65F0D8D82A1F43340088565E /* MMShareExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65F0D8E72A1F43340088565E /* Build configuration list for PBXNativeTarget "MMShareExtension" */;
@@ -547,6 +617,7 @@
 			);
 			dependencies = (
 				65F0D8E22A1F43340088565E /* PBXTargetDependency */,
+				65551D0D2E7AB51500DC7C4D /* PBXTargetDependency */,
 			);
 			name = MMPlayer;
 			productName = MMPlayer;
@@ -597,10 +668,13 @@
 		B4048096230303A70040B755 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Mumu;
 				TargetAttributes = {
+					65551CFF2E7AB51400DC7C4D = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					65F0D8D82A1F43340088565E = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -634,11 +708,19 @@
 				B40480AF230303A90040B755 /* MMPlayerTests */,
 				B40480BA230303A90040B755 /* MMPlayerUITests */,
 				65F0D8D82A1F43340088565E /* MMShareExtension */,
+				65551CFF2E7AB51400DC7C4D /* MMActionExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		65551CFE2E7AB51400DC7C4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65F0D8D72A1F43340088565E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -754,6 +836,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		65551CFC2E7AB51400DC7C4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65F0D8D52A1F43340088565E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -767,9 +856,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1C8BD523050E4200A6125A /* MMFileManager.swift in Sources */,
+				65551CFA2E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift in Sources */,
+				65551CFB2E7AA94000DC7C4D /* MMVideoPlayerSettings.swift in Sources */,
 				DF1C8BC82305082C00A6125A /* UIView+Extension.swift in Sources */,
 				B4B9BE732465765C00AD0F9B /* MMTopBottomTVCell.swift in Sources */,
 				DF1C8BD12305082C00A6125A /* MMBaseViewController.swift in Sources */,
+				65E6ADE72E614410008763F8 /* MMVideoPlayView.swift in Sources */,
 				B4CB4ABF246AC71D00E25C74 /* MMAudioPlayerVC.swift in Sources */,
 				DF1C8BD02305082C00A6125A /* MQTabbarController.swift in Sources */,
 				DF1C8BCF2305082C00A6125A /* MQConstant.swift in Sources */,
@@ -788,7 +880,7 @@
 				B4CB4ACD246C01F800E25C74 /* MMWKWebViewController.swift in Sources */,
 				B471A01323234EA700E38679 /* MMPlayerEnum.swift in Sources */,
 				B4095D0D2531C02F000448F9 /* MMVideoItem.swift in Sources */,
-				DF1C8BD22305082C00A6125A /* MQBaseNavigationViewController.swift in Sources */,
+				DF1C8BD22305082C00A6125A /* MMBaseNavigationViewController.swift in Sources */,
 				DF1C8BCA2305082C00A6125A /* UIViewController+Extension.swift in Sources */,
 				B40480A2230303A70040B755 /* AppDelegate.swift in Sources */,
 				B413AEBC246684AA009B385F /* CellProtorol.swift in Sources */,
@@ -825,6 +917,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		65551D0D2E7AB51500DC7C4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65551CFF2E7AB51400DC7C4D /* MMActionExtension */;
+			targetProxy = 65551D0C2E7AB51500DC7C4D /* PBXContainerItemProxy */;
+		};
 		65F0D8E22A1F43340088565E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 65F0D8D82A1F43340088565E /* MMShareExtension */;
@@ -854,14 +951,89 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		65551D112E7AB51500DC7C4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MMActionExtension/MMActionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65551D122E7AB51500DC7C4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MMActionExtension/MMActionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		65F0D8E52A1F43340088565E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MMShareExtension/MMShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMShareExtension;
@@ -873,7 +1045,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.world.player.MMShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -887,9 +1059,10 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MMShareExtension/MMShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMShareExtension;
@@ -901,7 +1074,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.world.player.MMShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1035,7 +1208,7 @@
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MMPlayer/resource/3th",
@@ -1049,7 +1222,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.world.player;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1067,7 +1240,7 @@
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MMPlayer/resource/3th",
@@ -1081,7 +1254,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.world.player;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1175,6 +1348,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65551D102E7AB51500DC7C4D /* Build configuration list for PBXNativeTarget "MMActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65551D112E7AB51500DC7C4D /* Debug */,
+				65551D122E7AB51500DC7C4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		65F0D8E72A1F43340088565E /* Build configuration list for PBXNativeTarget "MMShareExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

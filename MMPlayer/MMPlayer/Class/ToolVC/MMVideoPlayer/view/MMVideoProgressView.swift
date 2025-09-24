@@ -56,6 +56,8 @@ class MMVideoProgressView: UIView {
     private var wasPlayingBeforeDrag: Bool = false
     private var thumbnailCache: [Int: UIImage] = [:]
     private var lastThumbnailRequestTime: TimeInterval = 0
+    private var thumbnailGenerationQueue = DispatchQueue(label: "thumbnail.generation", qos: .userInteractive)
+    private var currentThumbnailTask: DispatchWorkItem?
     
     // 拖拽预览容器
     private lazy var previewContainer: UIView = {
@@ -234,6 +236,9 @@ class MMVideoProgressView: UIView {
     
     private func hidePreviewContainer() {
         previewContainer.isHidden = true
+        // 取消正在进行的截图任务
+        currentThumbnailTask?.cancel()
+        currentThumbnailTask = nil
     }
     
     private func updatePreviewContent() {
@@ -241,12 +246,12 @@ class MMVideoProgressView: UIView {
         let totalDuration = delegate?.progressViewGetTotalDuration(self) ?? 0
         let previewTime = totalDuration * Double(progress)
         
-        // 更新时间显示
+        // 更新时间显示（立即更新，不等待截图）
         previewTimeLabel.text = formatTime(seconds: previewTime)
         
         // 防抖：限制截图请求频率
         let currentTime = CACurrentMediaTime()
-        guard currentTime - lastThumbnailRequestTime > 0.1 else { return } // 100ms防抖
+        guard currentTime - lastThumbnailRequestTime > 0.2 else { return } // 增加到200ms防抖
         lastThumbnailRequestTime = currentTime
         
         // 使用5秒间隔作为缓存key
@@ -258,20 +263,33 @@ class MMVideoProgressView: UIView {
             return
         }
         
-        // 获取截图
-        delegate?.progressView(self, getThumbnailAt: previewTime) { [weak self] image in
-            DispatchQueue.main.async {
-                self?.previewImageView.image = image
-                
-                // 缓存截图（限制缓存大小）
-                if let image = image {
-                    if self?.thumbnailCache.count ?? 0 > 20 {
-                        self?.thumbnailCache.removeAll()
+        // 取消上一个任务
+        currentThumbnailTask?.cancel()
+        
+        // 创建新的截图任务
+        let thumbnailTask = DispatchWorkItem { [weak self] in
+            guard let self = self, !Thread.current.isCancelled else { return }
+            
+            // 在后台队列请求截图
+            self.delegate?.progressView(self, getThumbnailAt: previewTime) { [weak self] image in
+                DispatchQueue.main.async {
+                    guard let self = self else { return }
+                    
+                    self.previewImageView.image = image
+                    
+                    // 缓存截图（限制缓存大小）
+                    if let image = image {
+                        if self.thumbnailCache.count > 15 { // 减少缓存数量
+                            self.thumbnailCache.removeAll()
+                        }
+                        self.thumbnailCache[cacheKey] = image
                     }
-                    self?.thumbnailCache[cacheKey] = image
                 }
             }
         }
+        
+        currentThumbnailTask = thumbnailTask
+        thumbnailGenerationQueue.async(execute: thumbnailTask)
     }
     
     private func formatTime(seconds: Double) -> String {

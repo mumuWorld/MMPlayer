@@ -27,6 +27,13 @@ class MMHandleFileTool {
         let originalPath = MMFileManager.handleFitPath(path: path)
         let fileURL = URL(string: path) ?? URL(fileURLWithPath: originalPath)
         
+        // 检查是否为App Group共享目录中的文件
+        if isAppGroupSharedFile(url: fileURL) {
+            // 直接处理App Group中的文件，无需复制
+            handleAppGroupFile(url: fileURL)
+            return
+        }
+        
         // 先尝试获取文件信息来判断文件类型
         let isVideoFile = isVideoFileByExtension(path: originalPath)
         
@@ -217,5 +224,86 @@ class MMHandleFileTool {
         default:
             MMPrintLog(message: "暂不支持的文件类型")
         }
+    }
+    
+    /// 检查是否为App Group共享目录中的文件
+    /// - Parameter url: 文件URL
+    /// - Returns: 是否为App Group共享文件
+    private class func isAppGroupSharedFile(url: URL) -> Bool {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mumu.player") else {
+            return false
+        }
+        
+        let sharedPath = containerURL.path
+        return url.path.hasPrefix(sharedPath)
+    }
+    
+    /// 处理App Group共享目录中的文件
+    /// - Parameter url: 文件URL
+    private class func handleAppGroupFile(url: URL) {
+        MMPrintLog(message: "处理App Group共享文件: \(url.path)")
+        
+        // 检查文件是否存在
+        if !FileManager.default.fileExists(atPath: url.path) {
+            MMErrorLog(message: "App Group共享文件不存在: \(url.path)")
+            return
+        }
+        
+        // 判断文件类型并处理
+        let isVideoFile = isVideoFileByExtension(path: url.path)
+        let isAudioFile = isAudioFileByExtension(path: url.path)
+        
+        if isVideoFile || isAudioFile {
+            DispatchQueue.main.async {
+                handleMediaFile(at: url.path)
+            }
+        } else {
+            MMPrintLog(message: "不支持的文件类型: \(url.lastPathComponent)")
+        }
+    }
+    
+    /// 通过文件扩展名判断是否为音频文件
+    /// - Parameter path: 文件路径
+    /// - Returns: 是否为音频文件
+    private class func isAudioFileByExtension(path: String) -> Bool {
+        let url = URL(fileURLWithPath: path)
+        let fileExtension = url.pathExtension.lowercased()
+        
+        let audioExtensions = ["mp3", "wav", "aac", "m4a", "flac", "ogg", "wma", "aiff", "au", "ra"]
+        
+        return audioExtensions.contains(fileExtension)
+    }
+    
+    /// 统一的媒体文件处理方法
+    /// - Parameter filePath: 媒体文件路径
+    private class func handleMediaFile(at filePath: String) {
+        // 首先检查文件是否存在
+        if !FileManager.default.fileExists(atPath: filePath) {
+            MMErrorLog(message: "文件不存在: \(filePath)")
+            return
+        }
+        
+        guard let item = MMFileManager.getPathProperty(path: filePath) else {
+            MMErrorLog(message: "无法获取文件信息: \(filePath)")
+            return
+        }
+        
+        MMPrintLog(message: "准备打开媒体文件: \(item.name)")
+        
+        // 根据文件类型选择播放器
+        if isVideoFileByExtension(path: filePath) {
+            openVideoFile(with: item)
+        } else if isAudioFileByExtension(path: filePath) {
+            openAudioFile(with: item)
+        }
+    }
+    
+    /// 打开音频文件的方法
+    /// - Parameter item: 文件信息
+    private class func openAudioFile(with item: MMFileItem) {
+        // 这里可以添加音频播放器的逻辑
+        // 目前先显示提示信息
+        MMPrintLog(message: "准备播放音频文件: \(item.name)")
+        MMToastView.show(message: "音频文件: \(item.name)")
     }
 }

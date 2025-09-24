@@ -42,7 +42,7 @@ class ShareViewController: SLComposeServiceViewController {
             return 
         }
         
-        var hasVideoAttachment = false
+        var hasMediaAttachment = false
         let dispatchGroup = DispatchGroup()
         
         for item in inputItems {
@@ -60,46 +60,60 @@ class ShareViewController: SLComposeServiceViewController {
                     "public.movie"
                 ]
                 
-                for videoType in videoTypes {
-                    if attachment.hasItemConformingToTypeIdentifier(videoType) {
-                        print("发现视频类型: \(videoType)")
-                        hasVideoAttachment = true
+                // 检查多种音频类型
+                let audioTypes = [
+                    UTType.audio.identifier,
+                    UTType.mp3.identifier,
+                    UTType.wav.identifier,
+                    UTType.aiff.identifier,
+                    "public.audio"
+                ]
+                
+                // 合并所有媒体类型
+                let mediaTypes = videoTypes + audioTypes
+                
+                for mediaType in mediaTypes {
+                    if attachment.hasItemConformingToTypeIdentifier(mediaType) {
+                        let isVideo = videoTypes.contains(mediaType)
+                        print("发现\(isVideo ? "视频" : "音频")类型: \(mediaType)")
+                        hasMediaAttachment = true
                         dispatchGroup.enter()
                         
-                        // 使用 loadItem 加载视频，让系统决定返回类型
-                        attachment.loadItem(forTypeIdentifier: videoType, options: nil) { [weak self] (data, error) in
+                        // 使用 loadItem 加载媒体，让系统决定返回类型
+                        attachment.loadItem(forTypeIdentifier: mediaType, options: nil) { [weak self] (data, error) in
                             defer { dispatchGroup.leave() }
                             
                             DispatchQueue.main.async {
                                 if let error = error {
-                                    print("Error loading video: \(error)")
+                                    print("Error loading media: \(error)")
                                     return
                                 }
                                 
                                 print("收到数据类型: \(type(of: data))")
                                 
                                 // 尝试多种方式获取URL
-                                var videoURL: URL? = nil
+                                var mediaURL: URL? = nil
                                 
                                 if let url = data as? URL {
-                                    videoURL = url
+                                    mediaURL = url
                                 } else if let data = data as? Data {
                                     // 如果是Data，尝试创建临时文件
-                                    let tempURL = self?.saveDataToTempFile(data: data, fileExtension: "mp4")
-                                    videoURL = tempURL
+                                    let fileExtension = isVideo ? "mp4" : "mp3"
+                                    let tempURL = self?.saveDataToTempFile(data: data, fileExtension: fileExtension)
+                                    mediaURL = tempURL
                                 } else if let string = data as? String {
-                                    videoURL = URL(string: string)
+                                    mediaURL = URL(string: string)
                                 } else if let securedResource = data as? NSSecureCoding {
                                     print("收到安全编码资源: \(securedResource)")
                                     // 可能是 _EXItemProviderSandboxedResource 类型
                                 }
                                 
-                                if let url = videoURL {
-                                    print("获取到视频URL: \(url.absoluteString)")
+                                if let url = mediaURL {
+                                    print("获取到媒体URL: \(url.absoluteString)")
                                     if url.isFileURL {
                                         print("URL是否可访问: \(url.startAccessingSecurityScopedResource())")
                                     }
-                                    self?.openMainAppWithVideo(url: url)
+                                    self?.openMainAppWithMedia(url: url, isVideo: isVideo)
                                     if url.isFileURL {
                                         url.stopAccessingSecurityScopedResource()
                                     }
@@ -108,17 +122,17 @@ class ShareViewController: SLComposeServiceViewController {
                                 }
                             }
                         }
-                        break // 找到视频类型就退出内层循环
+                        break // 找到媒体类型就退出内层循环
                     }
                 }
             }
         }
         
-        if !hasVideoAttachment {
-            print("没有找到视频附件")
+        if !hasMediaAttachment {
+            print("没有找到媒体附件")
             completeRequest()
         } else {
-            // 等待所有视频处理完成后再完成请求
+            // 等待所有媒体处理完成后再完成请求
             dispatchGroup.notify(queue: .main) { [weak self] in
                 self?.completeRequest()
             }
@@ -146,24 +160,26 @@ class ShareViewController: SLComposeServiceViewController {
         }
     }
     
-    private func openMainAppWithVideo(url: URL) {
-        // 先将视频复制到 App Group 共享目录，获取新的URL
-        if let sharedURL = handleVideo(url: url) {
+    private func openMainAppWithMedia(url: URL, isVideo: Bool) {
+        // 先将媒体文件复制到 App Group 共享目录，获取新的URL
+        if let sharedURL = handleMedia(url: url) {
             // 使用共享目录中的URL创建自定义 scheme
-            let urlString = "mmplayer://video?path=\(sharedURL.absoluteString)"
+            let mediaType = isVideo ? "video" : "audio"
+            let urlString = "mmplayer://\(mediaType)?path=\(sharedURL.absoluteString)"
             if let customURL = URL(string: urlString) {
                 openURL(customURL)
             }
         } else {
             // 如果复制失败，使用原始URL
-            let urlString = "mmplayer://video?path=\(url.absoluteString)"
+            let mediaType = isVideo ? "video" : "audio"
+            let urlString = "mmplayer://\(mediaType)?path=\(url.absoluteString)"
             if let customURL = URL(string: urlString) {
                 openURL(customURL)
             }
         }
     }
     
-    private func handleVideo(url: URL) -> URL? {
+    private func handleMedia(url: URL) -> URL? {
         // 复制到 App Group 目录下的 received 文件夹
         let fm = FileManager.default
         if let containerURL = fm.containerURL(forSecurityApplicationGroupIdentifier: "group.mumu.player") {
@@ -189,7 +205,7 @@ class ShareViewController: SLComposeServiceViewController {
                 }
                 
                 try fm.copyItem(at: url, to: targetURL)
-                print("视频已保存到接收目录: \(targetURL)")
+                print("媒体文件已保存到接收目录: \(targetURL)")
                 return targetURL
             } catch {
                 print("保存到接收目录失败: \(error)")

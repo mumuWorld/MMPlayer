@@ -52,7 +52,14 @@ class MMTopBottomTVCell: MMBaseTableViewCell {
     }
 
     @objc func handleGesture(sender: UILongPressGestureRecognizer) {
-        
+        if sender.state == .began {
+            // 通知父视图控制器处理长按事件
+            if let tableView = self.superview as? UITableView,
+               let indexPath = tableView.indexPath(for: self),
+               let viewController = tableView.delegate as? MMSandboxVC {
+                viewController.handleLongPress(at: indexPath)
+            }
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

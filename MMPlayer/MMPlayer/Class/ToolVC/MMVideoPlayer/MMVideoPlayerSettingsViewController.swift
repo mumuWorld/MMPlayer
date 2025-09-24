@@ -57,13 +57,13 @@ class MMVideoPlayerSettingsViewController: MMBaseViewController {
 extension MMVideoPlayerSettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1 // 控制条常驻设置
+            return 2 // 控制条常驻设置 + 后台播放设置
         case 1:
             return 1 // 快进快退时间设置（改为单行）
         default:
@@ -85,7 +85,7 @@ extension MMVideoPlayerSettingsViewController: UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "开启后控制条将始终显示；关闭后播放时控制条会自动隐藏，点击屏幕或交互时显示"
+            return "控制条常驻：开启后控制条将始终显示；关闭后播放时控制条会自动隐藏\n后台播放：开启后退到后台时继续播放，关闭后退到后台时暂停播放"
         case 1:
             return "使用左右箭头键进行快进和快退操作"
         default:
@@ -96,17 +96,25 @@ extension MMVideoPlayerSettingsViewController: UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            // 控制条常驻设置
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel?.text = "控制条常驻显示"
             cell.selectionStyle = .none
-            
-            // 添加开关控件
-            let switchControl = UISwitch()
-            switchControl.isOn = MMVideoPlayerSettings.shared.controlsAlwaysVisible
-            switchControl.addTarget(self, action: #selector(controlsAlwaysVisibleSwitchChanged(_:)), for: .valueChanged)
-            cell.accessoryView = switchControl
             cell.backgroundColor = UIColor.systemBackground
+            
+            if indexPath.row == 0 {
+                // 控制条常驻设置
+                cell.textLabel?.text = "控制条常驻显示"
+                let switchControl = UISwitch()
+                switchControl.isOn = MMVideoPlayerSettings.shared.controlsAlwaysVisible
+                switchControl.addTarget(self, action: #selector(controlsAlwaysVisibleSwitchChanged(_:)), for: .valueChanged)
+                cell.accessoryView = switchControl
+            } else {
+                // 后台播放设置
+                cell.textLabel?.text = "后台播放"
+                let switchControl = UISwitch()
+                switchControl.isOn = MMVideoPlayerSettings.shared.backgroundPlaybackEnabled
+                switchControl.addTarget(self, action: #selector(backgroundPlaybackSwitchChanged(_:)), for: .valueChanged)
+                cell.accessoryView = switchControl
+            }
             return cell
             
         case 1:
@@ -143,6 +151,18 @@ extension MMVideoPlayerSettingsViewController: UITableViewDataSource, UITableVie
         
         // 显示保存成功提示
         let message = sender.isOn ? "控制条将始终显示" : "控制条将在播放时自动隐藏"
+        showSettingSavedAlert(message: message)
+    }
+    
+    @objc private func backgroundPlaybackSwitchChanged(_ sender: UISwitch) {
+        // 保存设置
+        MMVideoPlayerSettings.shared.backgroundPlaybackEnabled = sender.isOn
+        
+        // 发送通知给当前播放的视频更新状态
+        NotificationCenter.default.post(name: NSNotification.Name("MMVideoBackgroundPlaybackChanged"), object: nil)
+        
+        // 显示保存成功提示
+        let message = sender.isOn ? "已开启后台播放" : "已关闭后台播放"
         showSettingSavedAlert(message: message)
     }
     

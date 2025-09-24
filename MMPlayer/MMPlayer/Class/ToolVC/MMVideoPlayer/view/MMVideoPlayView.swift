@@ -62,6 +62,7 @@ class MMVideoPlayView: UIView {
     private var panStartBrightness: CGFloat = 0.0
     private var isSeekingGesture: Bool = false
     private var seekTime: TimeInterval = 0
+    private var isGesturePrioritySetup: Bool = false
     
     
     /// 手势提示视图
@@ -203,6 +204,38 @@ class MMVideoPlayView: UIView {
         playerContainerView.addGestureRecognizer(singleTapGesture)
         playerContainerView.addGestureRecognizer(doubleTapGesture)
         playerContainerView.isUserInteractionEnabled = true
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        // 当视图被添加到视图层次结构后，设置手势优先级
+        if superview != nil {
+            setupGesturePriority()
+        } else {
+            isGesturePrioritySetup = false
+        }
+    }
+    
+    private func setupGesturePriority() {
+        // 避免重复设置
+        guard !isGesturePrioritySetup else { return }
+        
+        // 设置边缘手势优先于视频播放手势
+        guard let viewController = findViewController(),
+              let navigationController = viewController.navigationController,
+              let edgePanGesture = navigationController.interactivePopGestureRecognizer else {
+            return
+        }
+        
+        // 找到视频播放的pan手势
+        for gestureRecognizer in playerContainerView.gestureRecognizers ?? [] {
+            if let panGesture = gestureRecognizer as? UIPanGestureRecognizer {
+                panGesture.require(toFail: edgePanGesture)
+                isGesturePrioritySetup = true
+                break
+            }
+        }
     }
     
     // MARK: - 播放视频
@@ -379,6 +412,13 @@ class MMVideoPlayView: UIView {
     // MARK: - 播放控制
     func pausePlayback() {
         playerTool?.pause()
+    }
+    
+    func resumePlaybackIfNeeded() {
+        // 如果视频处于暂停状态，且应用回到前台，恢复播放
+        if playerTool?.state == .paused {
+            playerTool?.play()
+        }
     }
     
     func stopPlayback() {
@@ -863,13 +903,7 @@ extension MMVideoPlayView: MMVideoPlayerToolDelegate {
 
 // MARK: - UIGestureRecognizerDelegate
 extension MMVideoPlayView: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        // 让屏幕边缘手势（返回手势）优先
-        if otherGestureRecognizer is UIScreenEdgePanGestureRecognizer {
-            return true
-        }
-        return false
-    }
+    // 由于已经通过 require(toFail:) 设置了手势优先级，这里可以保持简单的实现
 }
 
 // MARK: - Helper Extension

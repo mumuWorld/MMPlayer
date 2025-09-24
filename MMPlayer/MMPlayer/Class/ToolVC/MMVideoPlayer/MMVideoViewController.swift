@@ -46,13 +46,6 @@ class MMVideoViewController: MMBaseViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // 确保视频播放页面的右滑返回手势正常
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    }
-    
     private func setupNavigationItems() {
         // 添加设置按钮到导航栏右侧
         let settingsButton = UIBarButtonItem(
@@ -83,6 +76,29 @@ class MMVideoViewController: MMBaseViewController {
             self,
             selector: #selector(handleControlsVisibilityChanged),
             name: NSNotification.Name("MMVideoControlsVisibilityChanged"),
+            object: nil
+        )
+        
+        // 监听后台播放设置变化
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleBackgroundPlaybackChanged),
+            name: NSNotification.Name("MMVideoBackgroundPlaybackChanged"),
+            object: nil
+        )
+        
+        // 监听应用进入后台和前台
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appDidEnterBackground),
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appWillEnterForeground),
+            name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
     }
@@ -120,6 +136,22 @@ class MMVideoViewController: MMBaseViewController {
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     
+    @objc private func handleBackgroundPlaybackChanged(_ notification: Notification) {
+        // 后台播放设置已更改，无需立即处理，在进入后台时会检查设置
+    }
+    
+    @objc private func appDidEnterBackground() {
+        if !MMVideoPlayerSettings.shared.backgroundPlaybackEnabled {
+            // 如果后台播放未启用，暂停播放
+            videoPlayView.pausePlayback()
+        }
+    }
+    
+    @objc private func appWillEnterForeground() {
+        // 应用回到前台时，恢复播放（如果之前在播放）
+        videoPlayView.resumePlaybackIfNeeded()
+    }
+    
     override func naviBarPopItemStyle() -> PopItemStyle {
         return .PopItemWhite
     }
@@ -137,11 +169,6 @@ class MMVideoViewController: MMBaseViewController {
         return true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        becomeFirstResponder()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -153,8 +180,25 @@ class MMVideoViewController: MMBaseViewController {
         super.viewDidDisappear(animated)
         resignFirstResponder()
         
-        // 页面完全消失时停止播放
-        videoPlayView.stopPlayback()
+        // 如果是被导航栈pop掉，完全停止播放
+        if navigationController?.viewControllers.contains(self) == false {
+            videoPlayView.stopPlayback()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 确保视频播放页面的右滑返回手势正常
+//        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+//        navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        becomeFirstResponder()
+        
+        // 页面重新出现时恢复播放（如果之前在播放）
+        videoPlayView.resumePlaybackIfNeeded()
     }
     
     // 监听键盘按下事件
@@ -194,3 +238,4 @@ class MMVideoViewController: MMBaseViewController {
     }
     
 }
+

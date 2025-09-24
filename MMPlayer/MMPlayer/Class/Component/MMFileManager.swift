@@ -18,6 +18,16 @@ class MMFileManager {
     
     static var receivedPath = MMFileManager.cachePath?.appendPathComponent(string: "Received")
     
+    // App Group shared directory
+    static var appGroupSharedPath: String? {
+        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mumu.player")?.path
+    }
+    
+    // App Group received path
+    static var appGroupReceivedPath: String? {
+        return appGroupSharedPath?.appendPathComponent(string: "received")
+    }
+    
     class func getSandboxPath(fileType: DirectorType = .root) -> String {
         var type:FileManager.SearchPathDirectory = .applicationDirectory
         if fileType == .root {

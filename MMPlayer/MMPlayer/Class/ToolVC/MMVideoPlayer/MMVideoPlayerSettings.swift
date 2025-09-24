@@ -14,6 +14,7 @@ class MMVideoPlayerSettings {
     private let userDefaults = UserDefaults.standard
     private let seekTimeKey = "MMVideoPlayerSeekTime"
     private let controlsAlwaysVisibleKey = "MMVideoPlayerControlsAlwaysVisible"
+    private let backgroundPlaybackEnabledKey = "MMVideoPlayerBackgroundPlaybackEnabled"
     
     private init() {}
     
@@ -35,6 +36,16 @@ class MMVideoPlayerSettings {
         }
         set {
             userDefaults.set(newValue, forKey: controlsAlwaysVisibleKey)
+        }
+    }
+    
+    /// 后台播放开关，默认false
+    var backgroundPlaybackEnabled: Bool {
+        get {
+            return userDefaults.bool(forKey: backgroundPlaybackEnabledKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: backgroundPlaybackEnabledKey)
         }
     }
     

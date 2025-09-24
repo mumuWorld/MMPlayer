@@ -162,7 +162,7 @@ class MMSandboxVC: MMBaseTableViewController {
         let confirmAction = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
             guard let newName = alertController.textFields?.first?.text,
                   !newName.isEmpty else {
-                MMToastView.showToast(message: "文件名不能为空", inView: self?.view)
+                MMToastView.show(message: "文件名不能为空")
                 return
             }
             self?.performRenameFile(newName: newName)
@@ -187,7 +187,7 @@ class MMSandboxVC: MMBaseTableViewController {
         
         // 检查新文件名是否已存在
         if fileManager.fileExists(atPath: newPath) {
-            MMToastView.showToast(message: "文件名已存在", inView: view)
+            MMToastView.show(message: "文件名已存在")
             return
         }
         
@@ -202,11 +202,11 @@ class MMSandboxVC: MMBaseTableViewController {
             tableview.reloadRows(at: [indexPath], with: .none)
             
             // 显示成功提示
-            MMToastView.showToast(message: "重命名成功", inView: view)
+            MMToastView.show(message: "重命名成功")
             
         } catch {
             MMErrorLog(message: "重命名文件失败: \(error)")
-            MMToastView.showToast(message: "重命名失败: \(error.localizedDescription)", inView: view)
+            MMToastView.show(message: "重命名失败: \(error.localizedDescription)")
         }
         
         // 清空选中状态
@@ -222,7 +222,7 @@ class MMSandboxVC: MMBaseTableViewController {
         
         // 检查文件是否存在
         guard FileManager.default.fileExists(atPath: item.path) else {
-            MMToastView.showToast(message: "文件不存在", inView: view)
+            MMToastView.show(message: "文件不存在")
             return
         }
         
@@ -235,7 +235,7 @@ class MMSandboxVC: MMBaseTableViewController {
             // 成功显示选项菜单
         } else {
             // 如果没有可用的应用，显示提示
-            MMToastView.showToast(message: "没有可用的应用打开此文件", inView: view)
+            MMToastView.show(message: "没有可用的应用打开此文件")
         }
         
         // 清空选中状态
@@ -367,11 +367,11 @@ class MMSandboxVC: MMBaseTableViewController {
             tableview.deleteRows(at: [indexPath], with: .fade)
             
             // 显示成功提示
-            MMToastView.showToast(message: "删除成功", inView: view)
+            MMToastView.show(message: "删除成功")
             
         } catch {
             MMErrorLog(message: "删除文件失败: \(error)")
-            MMToastView.showToast(message: "删除失败: \(error.localizedDescription)", inView: view)
+            MMToastView.show(message: "删除失败: \(error.localizedDescription)")
         }
         
         // 清空选中状态
@@ -434,7 +434,7 @@ class MMSandboxVC: MMBaseTableViewController {
         
         // 检查目标路径是否已存在同名文件
         if fileManager.fileExists(atPath: targetPath) {
-            MMToastView.showToast(message: "目标位置已存在同名文件", inView: view)
+            MMToastView.show(message: "目标位置已存在同名文件")
             return
         }
         
@@ -444,7 +444,7 @@ class MMSandboxVC: MMBaseTableViewController {
                 try fileManager.createDirectory(atPath: destinationPath, withIntermediateDirectories: true, attributes: nil)
             } catch {
                 MMErrorLog(message: "创建目标目录失败: \(error)")
-                MMToastView.showToast(message: "移动失败: 无法创建目标目录", inView: view)
+                MMToastView.show(message: "移动失败: 无法创建目标目录")
                 return
             }
         }
@@ -459,11 +459,11 @@ class MMSandboxVC: MMBaseTableViewController {
             tableview.deleteRows(at: [indexPath], with: .fade)
             
             // 显示成功提示
-            MMToastView.showToast(message: "移动成功", inView: view)
+            MMToastView.show(message: "移动成功")
             
         } catch {
             MMErrorLog(message: "移动文件失败: \(error)")
-            MMToastView.showToast(message: "移动失败: \(error.localizedDescription)", inView: view)
+            MMToastView.show(message: "移动失败: \(error.localizedDescription)")
         }
         
         // 清空选中状态

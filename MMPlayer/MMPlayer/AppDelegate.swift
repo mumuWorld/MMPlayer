@@ -52,22 +52,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     func handleCustomURLScheme(url: URL) -> Bool {
-        guard url.host == "video" else { return false }
+        guard let host = url.host, (host == "video" || host == "audio") else { return false }
         
         // 解析 URL 参数
         let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         guard let queryItems = components?.queryItems,
               let pathItem = queryItems.first(where: { $0.name == "path" }),
-              let videoPath = pathItem.value,
-              let videoURL = URL(string: videoPath) else {
+              let mediaPath = pathItem.value,
+              let mediaURL = URL(string: mediaPath) else {
             return false
         }
         
-        MMToastView.show(message: "从相册接收视频: \(videoURL.lastPathComponent)")
+        let mediaType = host == "video" ? "视频" : "音频"
+        MMToastView.show(message: "从扩展接收\(mediaType): \(mediaURL.lastPathComponent)")
         
-        // 直接处理视频文件
-        DispatchQueue.main.async {
-            MMHandleFileTool.handleOpenFile(url: videoURL)
+        // 直接处理媒体文件
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            MMHandleFileTool.handleOpenFile(url: mediaURL)
         }
         
         return true

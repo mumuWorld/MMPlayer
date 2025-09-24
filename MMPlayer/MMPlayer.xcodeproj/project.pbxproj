@@ -10,8 +10,10 @@
 		22E70E206778F58EC24CC16C /* Pods_MMPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A4C4DDCE95AAA38A68F822 /* Pods_MMPlayerTests.framework */; };
 		65551CFA2E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65551CF92E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift */; };
 		65551CFB2E7AA94000DC7C4D /* MMVideoPlayerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65551CF82E7AA94000DC7C4D /* MMVideoPlayerSettings.swift */; };
-		65551D022E7AB51400DC7C4D /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */; };
-		65551D0E2E7AB51500DC7C4D /* MMActionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 65551D002E7AB51400DC7C4D /* MMActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65CAE6C02E82A2690047AB51 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */; };
+		65CAE6CC2E82A2690047AB51 /* MMAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 65CAE6BF2E82A2680047AB51 /* MMAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65CAE6D62E82A70F0047AB51 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */; };
+		65CAE6E12E82A70F0047AB51 /* MMActionNoUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 65CAE6D52E82A70F0047AB51 /* MMActionNoUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		65E6ADE72E614410008763F8 /* MMVideoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6ADE62E614410008763F8 /* MMVideoPlayView.swift */; };
 		65F0D8DC2A1F43340088565E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F0D8DB2A1F43340088565E /* ShareViewController.swift */; };
 		65F0D8DF2A1F43340088565E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F0D8DD2A1F43340088565E /* MainInterface.storyboard */; };
@@ -65,12 +67,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		65551D0C2E7AB51500DC7C4D /* PBXContainerItemProxy */ = {
+		65CAE6CA2E82A2690047AB51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4048096230303A70040B755 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 65551CFF2E7AB51400DC7C4D;
-			remoteInfo = MMActionExtension;
+			remoteGlobalIDString = 65CAE6BE2E82A2680047AB51;
+			remoteInfo = MMAction;
+		};
+		65CAE6DF2E82A70F0047AB51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4048096230303A70040B755 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65CAE6D42E82A70F0047AB51;
+			remoteInfo = MMActionNoUI;
 		};
 		65F0D8E12A1F43340088565E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -102,7 +111,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				65551D0E2E7AB51500DC7C4D /* MMActionExtension.appex in Embed Foundation Extensions */,
+				65CAE6E12E82A70F0047AB51 /* MMActionNoUI.appex in Embed Foundation Extensions */,
+				65CAE6CC2E82A2690047AB51 /* MMAction.appex in Embed Foundation Extensions */,
 				65F0D8E32A1F43340088565E /* MMShareExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -125,9 +135,10 @@
 		393BAD51E78DB8BF987E8515 /* Pods-MMPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMPlayer/Pods-MMPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		65551CF82E7AA94000DC7C4D /* MMVideoPlayerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayerSettings.swift; sourceTree = "<group>"; };
 		65551CF92E7AA94000DC7C4D /* MMVideoPlayerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayerSettingsViewController.swift; sourceTree = "<group>"; };
-		65551D002E7AB51400DC7C4D /* MMActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		65551D012E7AB51400DC7C4D /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		65551D442E7BA66600DC7C4D /* MMShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMShareExtension.entitlements; sourceTree = "<group>"; };
+		65CAE6BF2E82A2680047AB51 /* MMAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		65CAE6D52E82A70F0047AB51 /* MMActionNoUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMActionNoUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E6ADE62E614410008763F8 /* MMVideoPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoPlayView.swift; sourceTree = "<group>"; };
 		65F0D8D92A1F43340088565E /* MMShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F0D8DB2A1F43340088565E /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -194,25 +205,41 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		65551D0F2E7AB51500DC7C4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		65CAE6CD2E82A2690047AB51 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 65551CFF2E7AB51400DC7C4D /* MMActionExtension */;
+			target = 65CAE6BE2E82A2680047AB51 /* MMAction */;
+		};
+		65CAE6E22E82A70F0047AB51 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 65CAE6D42E82A70F0047AB51 /* MMActionNoUI */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		65551D032E7AB51500DC7C4D /* MMActionExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (65551D0F2E7AB51500DC7C4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMActionExtension; sourceTree = "<group>"; };
+		65CAE6C12E82A2690047AB51 /* MMAction */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (65CAE6CD2E82A2690047AB51 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMAction; sourceTree = "<group>"; };
+		65CAE6D72E82A70F0047AB51 /* MMActionNoUI */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (65CAE6E22E82A70F0047AB51 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMActionNoUI; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		65551CFD2E7AB51400DC7C4D /* Frameworks */ = {
+		65CAE6BC2E82A2680047AB51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65551D022E7AB51400DC7C4D /* UniformTypeIdentifiers.framework in Frameworks */,
+				65CAE6C02E82A2690047AB51 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65CAE6D22E82A70F0047AB51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65CAE6D62E82A70F0047AB51 /* UniformTypeIdentifiers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +308,8 @@
 				B40480B3230303A90040B755 /* MMPlayerTests */,
 				B40480BE230303A90040B755 /* MMPlayerUITests */,
 				65F0D8DA2A1F43340088565E /* MMShareExtension */,
-				65551D032E7AB51500DC7C4D /* MMActionExtension */,
+				65CAE6C12E82A2690047AB51 /* MMAction */,
+				65CAE6D72E82A70F0047AB51 /* MMActionNoUI */,
 				B404809F230303A70040B755 /* Products */,
 				AEC6A9C5959A8BA20EACBCAE /* Pods */,
 				B7536766FBF228B5697004C7 /* Frameworks */,
@@ -295,7 +323,8 @@
 				B40480B0230303A90040B755 /* MMPlayerTests.xctest */,
 				B40480BB230303A90040B755 /* MMPlayerUITests.xctest */,
 				65F0D8D92A1F43340088565E /* MMShareExtension.appex */,
-				65551D002E7AB51400DC7C4D /* MMActionExtension.appex */,
+				65CAE6BF2E82A2680047AB51 /* MMAction.appex */,
+				65CAE6D52E82A70F0047AB51 /* MMActionNoUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -562,26 +591,48 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		65551CFF2E7AB51400DC7C4D /* MMActionExtension */ = {
+		65CAE6BE2E82A2680047AB51 /* MMAction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65551D102E7AB51500DC7C4D /* Build configuration list for PBXNativeTarget "MMActionExtension" */;
+			buildConfigurationList = 65CAE6CE2E82A2690047AB51 /* Build configuration list for PBXNativeTarget "MMAction" */;
 			buildPhases = (
-				65551CFC2E7AB51400DC7C4D /* Sources */,
-				65551CFD2E7AB51400DC7C4D /* Frameworks */,
-				65551CFE2E7AB51400DC7C4D /* Resources */,
+				65CAE6BB2E82A2680047AB51 /* Sources */,
+				65CAE6BC2E82A2680047AB51 /* Frameworks */,
+				65CAE6BD2E82A2680047AB51 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				65551D032E7AB51500DC7C4D /* MMActionExtension */,
+				65CAE6C12E82A2690047AB51 /* MMAction */,
 			);
-			name = MMActionExtension;
+			name = MMAction;
 			packageProductDependencies = (
 			);
-			productName = MMActionExtension;
-			productReference = 65551D002E7AB51400DC7C4D /* MMActionExtension.appex */;
+			productName = MMAction;
+			productReference = 65CAE6BF2E82A2680047AB51 /* MMAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		65CAE6D42E82A70F0047AB51 /* MMActionNoUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65CAE6E32E82A70F0047AB51 /* Build configuration list for PBXNativeTarget "MMActionNoUI" */;
+			buildPhases = (
+				65CAE6D12E82A70F0047AB51 /* Sources */,
+				65CAE6D22E82A70F0047AB51 /* Frameworks */,
+				65CAE6D32E82A70F0047AB51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				65CAE6D72E82A70F0047AB51 /* MMActionNoUI */,
+			);
+			name = MMActionNoUI;
+			packageProductDependencies = (
+			);
+			productName = MMActionNoUI;
+			productReference = 65CAE6D52E82A70F0047AB51 /* MMActionNoUI.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		65F0D8D82A1F43340088565E /* MMShareExtension */ = {
@@ -617,7 +668,8 @@
 			);
 			dependencies = (
 				65F0D8E22A1F43340088565E /* PBXTargetDependency */,
-				65551D0D2E7AB51500DC7C4D /* PBXTargetDependency */,
+				65CAE6CB2E82A2690047AB51 /* PBXTargetDependency */,
+				65CAE6E02E82A70F0047AB51 /* PBXTargetDependency */,
 			);
 			name = MMPlayer;
 			productName = MMPlayer;
@@ -672,7 +724,10 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Mumu;
 				TargetAttributes = {
-					65551CFF2E7AB51400DC7C4D = {
+					65CAE6BE2E82A2680047AB51 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					65CAE6D42E82A70F0047AB51 = {
 						CreatedOnToolsVersion = 26.0;
 					};
 					65F0D8D82A1F43340088565E = {
@@ -708,13 +763,21 @@
 				B40480AF230303A90040B755 /* MMPlayerTests */,
 				B40480BA230303A90040B755 /* MMPlayerUITests */,
 				65F0D8D82A1F43340088565E /* MMShareExtension */,
-				65551CFF2E7AB51400DC7C4D /* MMActionExtension */,
+				65CAE6BE2E82A2680047AB51 /* MMAction */,
+				65CAE6D42E82A70F0047AB51 /* MMActionNoUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		65551CFE2E7AB51400DC7C4D /* Resources */ = {
+		65CAE6BD2E82A2680047AB51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65CAE6D32E82A70F0047AB51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -836,7 +899,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		65551CFC2E7AB51400DC7C4D /* Sources */ = {
+		65CAE6BB2E82A2680047AB51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65CAE6D12E82A70F0047AB51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -917,10 +987,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		65551D0D2E7AB51500DC7C4D /* PBXTargetDependency */ = {
+		65CAE6CB2E82A2690047AB51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 65551CFF2E7AB51400DC7C4D /* MMActionExtension */;
-			targetProxy = 65551D0C2E7AB51500DC7C4D /* PBXContainerItemProxy */;
+			target = 65CAE6BE2E82A2680047AB51 /* MMAction */;
+			targetProxy = 65CAE6CA2E82A2690047AB51 /* PBXContainerItemProxy */;
+		};
+		65CAE6E02E82A70F0047AB51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65CAE6D42E82A70F0047AB51 /* MMActionNoUI */;
+			targetProxy = 65CAE6DF2E82A70F0047AB51 /* PBXContainerItemProxy */;
 		};
 		65F0D8E22A1F43340088565E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -951,23 +1026,23 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		65551D112E7AB51500DC7C4D /* Debug */ = {
+		65CAE6CF2E82A2690047AB51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MMActionExtension/MMActionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MMAction/MMAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MMActionExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MMActionExtension;
+				INFOPLIST_FILE = MMAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "MM 播放器";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -975,7 +1050,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMActionExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -988,23 +1063,23 @@
 			};
 			name = Debug;
 		};
-		65551D122E7AB51500DC7C4D /* Release */ = {
+		65CAE6D02E82A2690047AB51 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MMActionExtension/MMActionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MMAction/MMAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MMActionExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MMActionExtension;
+				INFOPLIST_FILE = MMAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "MM 播放器";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1012,7 +1087,81 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMActionExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65CAE6E42E82A70F0047AB51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MMActionNoUI/MMActionNoUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionNoUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionNoUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMActionNoUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65CAE6E52E82A70F0047AB51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MMActionNoUI/MMActionNoUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionNoUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionNoUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yd.mm.player.MMActionNoUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1203,7 +1352,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 393BAD51E78DB8BF987E8515 /* Pods-MMPlayer.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1235,7 +1383,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C85EBF07D0C671BED1557E5 /* Pods-MMPlayer.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MMPlayer/MMPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1267,7 +1414,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 933772F1AB1F5C5F0615EC25 /* Pods-MMPlayerTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1288,7 +1434,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D771EB70F649CEFDD0F50A00 /* Pods-MMPlayerTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1309,7 +1454,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C475C4304073614586C34B79 /* Pods-MMPlayerUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MMPlayerUITests/Info.plist;
@@ -1329,7 +1473,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD4636E9DEE43B66BFA161CA /* Pods-MMPlayerUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MMPlayerUITests/Info.plist;
@@ -1348,11 +1491,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65551D102E7AB51500DC7C4D /* Build configuration list for PBXNativeTarget "MMActionExtension" */ = {
+		65CAE6CE2E82A2690047AB51 /* Build configuration list for PBXNativeTarget "MMAction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65551D112E7AB51500DC7C4D /* Debug */,
-				65551D122E7AB51500DC7C4D /* Release */,
+				65CAE6CF2E82A2690047AB51 /* Debug */,
+				65CAE6D02E82A2690047AB51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65CAE6E32E82A70F0047AB51 /* Build configuration list for PBXNativeTarget "MMActionNoUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65CAE6E42E82A70F0047AB51 /* Debug */,
+				65CAE6E52E82A70F0047AB51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
